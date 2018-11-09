@@ -1,129 +1,130 @@
-#!/usr/bin/env zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Aliases
-alias b="bundle"
-alias flush-cache="sudo killall -HUP mDNSResponder"
-alias m="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
-alias mkdir="mkdir -p"
-alias path='echo $PATH | tr -s ":" "\n"'
-alias restart-postgres="rm /usr/local/var/postgres/postmaster.pid; launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist; launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-alias v='vim'
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/chrisyoung/.oh-my-zsh
 
-# Clone a Git repo into Go-compatible directory structure.
-# clone https://github.com/statusok/statusok
-function clone() {
-  host=$(echo "$1" | cut -d / -f 3)
-  user=$(echo "$1" | cut -d / -f 4)
-  repo=$(echo "$1" | cut -d / -f 5)
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-  cd "$GOPATH/src/$host" || exit
-  mkdir -p "$user"
-  cd "$user" || exit
-  git clone "git@$host:$user/$repo".git
-  cd "$repo" || exit
-}
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Load .env file into shell session for environment variables
-function envup() {
-  if [ -f .env ]; then
-    export "$(cat .env)"
-  else
-    echo 'No .env file found' 1>&2
-    return 1
-  fi
-}
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# g is a shortcut for git
-function g() {
-  if [[ $# -gt 0 ]]; then
-    git "$@"
-  else
-    git status
-  fi
-}
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Create feature branch with conventional name: user/feature
-function c() {
-  if [[ $# -gt 0 ]]; then
-    branch="$(whoami)/$1"
-    git create-branch "$branch"
-  else
-    echo 'usage: c feature-name'
-  fi
-}
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-# Editor
-export VISUAL=vim
-export EDITOR=$VISUAL
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# History
-setopt hist_ignore_all_dups inc_append_history
-HISTFILE=~/.zhistory
-HISTSIZE=4096
-SAVEHIST=4096
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# fzf for finding files, ag for searching files
-if [ -d /usr/local/opt/fzf/shell ]; then
-  source "/usr/local/opt/fzf/shell/completion.zsh"
-  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-fi
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-# Color
-autoload -U colors
-colors
-export CLICOLOR=1
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-# Prompt
-function git_prompt_info() {
-  current_branch=$(git current-branch 2> /dev/null)
-  if [[ -n $current_branch ]]; then
-    echo " %{$fg_bold[green]%}$current_branch%{$reset_color%}"
-  fi
-}
-setopt promptsubst
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-if ! env | grep -q '^PS1='; then
-  PS1='%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
-fi
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-# Completion
-autoload -U compinit
-compinit
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Configure Go
-export GOPATH="$HOME"
-PATH="$GOPATH/bin:$PATH"
-PATH="/usr/local/go/bin:$PATH"
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(rails git ruby)
+plugins=(docker)
+plugins=(docker-compose)
+plugins=(zsh-peco-history)
+plugins=(node npm brew git-flow-avh sublime sudo yarn wd)
 
-# https://github.com/golang/go/wiki/InvalidFlag
-export CGO_LDFLAGS_ALLOW='-fstack-protector'
+source $ZSH/oh-my-zsh.sh
 
-# Set environment variables for monorepos
-export OK="$HOME/src/statusok"
-export I10R="$HOME/src/i10r.io"
-export ROOSTER="$HOME/src/rooster"
+# User configuration
 
-# Change into most common directories
-export CDPATH="$CDPATH:$I10R:$OK:$ROOSTER:$GOPATH/src/github.com"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Prepend monorepo scripts
-PATH="$OK/bin:$PATH"
-PATH="$I10R/bin:$PATH"
-PATH="$ROOSTER/bin:$PATH"
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# Prepend Homebrew binaries
-PATH="/usr/local/bin:$PATH"
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# Prepend programming language binaries via ASDF shims
-PATH="$HOME/.asdf/bin:$PATH"
-PATH="$HOME/.asdf/shims:$PATH"
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# Prepend Android tools
-PATH="$HOME/Library/Android/sdk/tools:$PATH"
-PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# mkdir .git/safe in trusted project to add binstubs
-PATH=".git/safe/../../bin:$PATH"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias python=/usr/local/bin/python3
+alias azure="az"
+alias sourcetree='open -a SourceTree'
 
-export PATH
+DEFAULT_USER=`whoami`
+
+export PATH=$PATH:/Users/chrisyoung/bin
+
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+autoload bashcompinit && bashcompinit
+source '/Users/chrisyoung/lib/azure-cli/az.completion'
+
+. ~/.fastlane/completions/completion.sh
+
+export PATH=~/Library/Android/sdk/platform-tools:$PATH
+export PATH=~/Library/Android/sdk/tools:$PATH
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+export PATH="$PATH:/Applications/TEE-CLC"
+export PATH="$PATH:/usr/local/Cellar/sstp-client/1.0.11_1/sbin"
+
+export ANT_HOME="/usr/local/opt/ant"
+export MAVEN_HOME="/usr/local/opt/maven"
+export GRADLE_HOME="/usr/local/opt/gradle"
+
+export ANDROID_HOME=/Users/chrisyoung/Library/Android/sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export ANDROID_NDK_HOME=$ANDROID_HOME
+
+export PATH="$ANT_HOME/bin:$PATH"
+export PATH="$MAVEN_HOME/bin:$PATH"
+export PATH="$GRADLE_HOME/bin:$PATH"
+
+export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+
+export PATH="/usr/local/sbin:$PATH"
+
+

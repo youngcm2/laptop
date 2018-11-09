@@ -220,18 +220,7 @@ brew cleanup
 
   ln -sf "$PWD/asdf/asdfrc" "$HOME/.asdfrc"
   ln -sf "$PWD/asdf/tool-versions" "$HOME/.tool-versions"
-
-  ln -sf "$PWD/editor/vimrc" "$HOME/.vimrc"
-
-  mkdir -p "$HOME/.vim/ftdetect"
-  mkdir -p "$HOME/.vim/ftplugin"
-  (
-    cd editor/vim
-    for f in {ftdetect,ftplugin}/*; do
-      ln -sf "$PWD/$f" "$HOME/.vim/$f"
-    done
-  )
-
+  
   mkdir -p "$HOME/.git_template/hooks"
   (
     cd git/git_template
@@ -258,16 +247,7 @@ brew cleanup
   ln -sf "$PWD/shell/tmux.conf" "$HOME/.tmux.conf"
   ln -sf "$PWD/shell/zshrc" "$HOME/.zshrc"
 
-  ln -sf "$PWD/sql/psqlrc" "$HOME/.psqlrc"
 )
-
-if [ -e "$HOME/.vim/autoload/plug.vim" ]; then
-  vim -u "$HOME/.vimrc" +PlugUpgrade +qa
-else
-  curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-vim -u "$HOME/.vimrc" +PlugUpdate +PlugClean! +qa
 
 if ! command -v go >/dev/null; then
   if ! go version | grep -Fq "1.11"; then
@@ -294,21 +274,21 @@ asdf_plugin_update() {
 }
 
 asdf_plugin_update "java" "https://github.com/skotchpine/asdf-java"
-asdf install java 8.172
-asdf install java 10.0.1
+asdf install java
 
 asdf_plugin_update "maven" "https://github.com/skotchpine/asdf-maven"
-asdf install maven 3.3.9
+asdf install maven
 
 asdf_plugin_update "nodejs" "https://github.com/asdf-vm/asdf-nodejs"
 export NODEJS_CHECK_SIGNATURES=no
-asdf install nodejs 8.9.0
-asdf reshim nodejs
+asdf install nodejs
 npm config set scripts-prepend-node-path true
 
 asdf_plugin_update "python" "https://github.com/tuvistavie/asdf-python.git"
-asdf install python 3.6.5
+asdf install python
 
 asdf_plugin_update "ruby" "https://github.com/asdf-vm/asdf-ruby"
-asdf install ruby 2.4.2
-asdf install ruby 2.5.1
+asdf install ruby
+
+asdf_plugin_update "dotnet-core" "https://github.com/emersonsoares/asdf-dotnet-core.git"
+asdf install dotnet-core

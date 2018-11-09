@@ -1,48 +1,188 @@
-[alias]
-  l = log --pretty=basic
-  lt = log --pretty=time
-  la = log --pretty=author
-  lta = log --pretty=timeauthor
-  aa = add --all
-  ap = add --patch
-  ci = commit -v
-  co = checkout
-  st = status
-[color]
-  ui = auto
-[commit]
-  template = ~/.gitmessage
-[core]
-  excludesfile = ~/.gitignore
-  autocrlf = input
-[credential]
-  helper = osxkeychain
-[diff]
-  tool = vimdiff
-[fetch]
-  prune = true
-[github]
-  user = croaky
-[include]
-  path = ~/.gitconfig.local
-[init]
-  templatedir = ~/.git_template
-[merge]
-  ff = only
-  tool = vimdiff
-[mergetool "vimdiff"]
-  cmd = vimdiff -f $LOCAL $MERGED $REMOTE
-[pretty]
-  basic = format:%Cred%h%Creset %s%Creset
-  time = format:%Cred%h%Creset %s %Cgreen(%cr)%Creset
-  author = format:%Cred%h%Creset %s %C(bold blue)%an%Creset
-  timeauthor = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
-[push]
-  default = current
-[rebase]
-  autosquash = true
-[rerere]
-  enabled = true
 [user]
-  name = Dan Croak
-  email = dan@statusok.com
+	name = Chris Young
+	email = cyoung@architectnow.net
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[branch]
+	autosetuprebase = always
+[core]
+	excludesfile = /Users/chrisyoung/.gitignore_global
+	editor = ~/bin/subl -n -w
+	autocrlf = false
+[difftool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+	recurseSubmodules = on-demand
+[auto]
+	rebase = true
+[pull]
+	rebase = true
+[merge]
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+	tool = extMerge
+[mergetool "extMerge"]
+  cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  trustExitCode = false
+[diff]
+  external = extDiff	
+[commit]
+	template = /Users/chrisyoung/.stCommitMsg
+[alias]  
+   # basic {{{
+	    st = status -s
+	    cl = clone
+	    ci = commit
+	    co = checkout
+	    cob = checkout -b	  
+	    br = branch
+	    r = reset
+	    cp = cherry-pick
+	    gr = grep -Ii	    
+	    nuke = !sh -c 'git branch -D $1 && git push origin :$1' -	    
+    # }}}
+
+    # tweak defaults {{{
+	    diff = diff --word-diff
+	    branch = branch -ra
+	    grep = grep -Ii
+	    bra = branch -ra
+	    ai = add --interactive
+	    f = !git fetch --all && git rebase origin/master
+	    # grep on filename
+	    #f = "!git ls-files | grep -i"
+    # }}}
+
+    # commit {{{
+  		save = !git add -A && git commit -m 'SAVEPOINT'
+  		wip = !git add -u && git commit -m "WIP"  
+	    cm = commit -m
+	    cma = !git add -A && git commit -m
+	    ca = commit --amend	    
+	    caa = !git add -A && commit --amend -C HEAD
+	    amend = !git add -A && git commit --amend --no-edit
+    # }}}
+
+    # resets {{{
+    	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard  		
+    # }}}
+
+    # gitflow {{{
+		bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+  		bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+
+  		# release
+  		frs = "!f() { git flow release start \"$1\"; }; f"
+  		frp = "!f() { git flow release publish \"$1\"; }; f"
+  		frf = "!f() { git flow release finish -F -m \"$1\" \"$1\"; }; f"
+  		frfk = "!f() { git flow release finish -F -k -m \"$1\" \"$1\"; }; f"
+  		frrs = "!f() { git checkout develop; git branch -D release/$1 && git push origin :release/$1; git pull; git flow release start \"$1\"; git flow release publish \"$1\"; };f"
+
+  		#hotfix
+  		fhs = "!f() { git flow hotfix start \"$1\"; }; f"
+  		fhp = "!f() { git flow hotfix publish \"$1\" }; f"
+  		fhf = "!f() { git flow hotfix finish -F -m \"$1\" \"$1\"; }; f"
+  		fhfk = "!f() { git flow hotfix finish -F -k -m \"$1\" \"$1\"; }; f"
+  		fhrs = "!f() { git checkout master; git branch -D hotfix/$1 && git push origin :hotfix/$1; git pull; git flow hotfix start \"$1\"; git flow hotfix publish \"$1\"; };f"
+
+  		#feature
+  		ffs = "!f() { git flow feature start "$1"; }; f"
+  		ffp = "!f() { git flow feature publish \"$1\"; }; f"
+  		ffr = "!f() { git flow feature rebase \"$1\"; }; f"
+  		fff = "!f() { git flow feature finish -F -r \"$1\"; }; f"
+  		fffk = "!f() { git flow feature finish -F -r -k \"$1\"; }; f"
+
+    # }}}
+
+    # log commands {{{
+	    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	    lc  = "!f() { git ll "$1"^.."$1"; }; f"
+	    lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	    fl = log -u
+	    filelog = log -u
+    # }}}
+
+    # diff {{{
+	    d = diff --word-diff
+	    dc = diff --cached
+    # diff last commit
+	    dlc = diff --cached HEAD^
+	    dr  = "!f() { git diff -w "$1"^.."$1"; }; f"
+	    diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+    # }}}
+
+    # reset commands {{{
+	    r1 = reset HEAD^
+	    r2 = reset HEAD^^
+	    rh = reset --hard
+	    rh1 = reset HEAD^ --hard
+	    rh2 = reset HEAD^^ --hard
+    # }}}
+    
+    # stash {{{
+	    sl = stash list
+	    sa = stash apply
+	    ss = stash save
+	    sp = stash pop
+    # }}}
+
+    # various useful {{{
+    
+    # last tag created
+	    lasttag = describe --tags --abbrev=0
+	    lt = describe --tags --abbrev=0
+
+    # conflict/merges
+
+	    ours = "!f() { git co --ours $@ && git add $@; }; f"
+	    theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+
+    #list remotes
+	    rem="!git config -l | grep remote.*url | tail -n +2"
+
+    #apply patch from other local repo
+    	lap = "!f() { git --git-dir=$1 format-patch -k -1 --stdout $2 | git am -3 -k; }; f"
+
+    #open markdown files edited in last commit
+    	last = "!gvim $(git show HEAD --format="" --name-only | grep -e .*md$ | xargs)"
+    
+    #open just created markdown in working directory
+    	newmd = "!gvim $(git status -s | awk {'print $2'})"
+
+    # initial empty commit
+    	empty = "!git commit -am\"[empty] Initial commit\" --allow-empty"
+
+    # list all aliases
+    	la = "!git config -l | grep alias | cut -c 7-"
+    
+    # }}}
+
+    # convoluted aliases {{{
+    
+    # grep from root folder
+    	gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+	
+	#rename branch tree to done-
+    	done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+
+    # }}}
+    
+    # worktree list {{{
+    
+    	wl = worktree list
+    
+    # undo from here http://megakemp.com/2016/08/25/git-undo/
+    	
+    	undom = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+    # }}}
+[fetch]
+	recurseSubmodules = yes
