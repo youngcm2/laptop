@@ -1,6 +1,16 @@
+##################################
+######       TAPS           ######
+##################################
+
 tap "homebrew/services"
 tap "wata727/tflint"
 tap "azure/functions"
+tap "jakehilborn/jakehilborn" 
+tap "ravenac95/sudolikeaboss"
+
+##################################
+######       FORMULA        ######
+##################################
 
 # Utility for manipulating HFS+ compressed files
 brew "afsctool"
@@ -22,14 +32,24 @@ brew "azure-functions-core-tools@3"
 brew "certbot"
 # Display user-friendly message boxes from shell scripts
 brew "dialog"
+# macOS command line utility to configure multi-display resolutions and arrangements
+brew "displayplacer"
 # Lightweight DNS forwarder and DHCP server
 brew "dnsmasq"
+# Bash, Zsh and Fish completion for Docker
+brew "docker-completion"
+# Isolated development environments using Docker
+brew "docker-compose"
+# Completion script for docker-compose
+brew "docker-compose-completion"
 # Native C/C++ API Blueprint Parser
 brew "fontforge"
 # Software library to render fonts
 brew "freetype"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # AVH edition of git-flow
@@ -78,6 +98,8 @@ brew "libtool"
 brew "libyaml"
 # Creates dependencies in makefiles
 brew "makedepend"
+# Mac App Store command-line interface
+brew "mas"
 # Cross platform, open source .NET development framework
 brew "mono"
 # Manage multiple Node.js versions
@@ -100,10 +122,14 @@ brew "pkg-config"
 brew "protobuf"
 # Python version management
 brew "pyenv"
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
 # Library for command-line editing
 brew "readline"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
+# GNU Make with improved error handling, tracing, and a debugger
+brew "remake"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
 # Ruby version manager
@@ -118,6 +144,8 @@ brew "sphinx-doc"
 brew "sqlcipher"
 # Command-line interface for SQLite
 brew "sqlite"
+# 1password passwords on the terminal
+brew "sudolikeaboss"
 # Generate clients, server stubs, and docs from an OpenAPI spec
 brew "swagger-codegen"
 # Tool to build, change, and version infrastructure
@@ -144,6 +172,11 @@ brew "zeromq"
 brew "zsh"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+
+
+##################################
+######       CASKS          ######
+##################################
 
 # Application launcher and productivity software
 cask "alfred"
@@ -185,6 +218,8 @@ cask "colorsnapper"
 cask "contexts"
 # Cyberduck is a libre server and cloud storage browser
 cask "cyberduck"
+# Voice and text chat software
+cask "discord"
 # App to build and share containerized applications and microservices
 cask "docker"
 # .net framework
@@ -253,6 +288,8 @@ cask "speedcrunch"
 cask "spotify"
 # Mongo tool
 cask "studio-3t"
+# Sublime Merge
+cask "sublime-merge"
 # Text editor for code, markup and prose
 cask "sublime-text"
 # Remote access and connectivity software focused on security
