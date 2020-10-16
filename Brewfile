@@ -16,6 +16,8 @@ tap "ravenac95/sudolikeaboss"
 brew "afsctool"
 # Tool for reverse engineering 3rd party, closed, binary Android apps
 brew "apktool"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
 # Configuration editing tool and API
 brew "augeas"
 # Automatic configure script builder
