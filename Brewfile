@@ -7,6 +7,7 @@ tap "wata727/tflint"
 tap "azure/functions"
 tap "jakehilborn/jakehilborn" 
 tap "ravenac95/sudolikeaboss"
+tap "isen-ng/dotnet-sdk-versions"
 
 ##################################
 ######       FORMULA        ######
@@ -224,8 +225,10 @@ cask "cyberduck"
 cask "discord"
 # App to build and share containerized applications and microservices
 cask "docker"
-# .net framework
+# .net framework latest
 cask "dotnet-sdk"
+# .net framework 3-1-405
+cask dotnet-sdk3-1-400
 # Flowcharts
 cask "drawio"
 # App for note taking, organizing, task lists, and archiving
