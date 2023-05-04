@@ -1,0 +1,230 @@
+##################################
+######       TAPS           ######
+##################################
+
+tap "homeervices
+tap "azure/functions"
+tap "jakehilborn/jakehilborn" 
+tap "ravenac95/sudolikeaboss"
+tap "isen-ng/dotnet-sdk-versions"
+
+##################################
+######       FORMULA        ######
+##################################
+
+# Utility for manipulating HFS+ compressed files
+afsctool
+apktool
+asdf
+augeas
+autoconf
+automake
+awscli
+azure-cli
+azure-functions-core-tools@3
+certbot
+dialog
+displayplacer
+dnsmasq
+docker-completion
+docker-compose
+docker-compose-completion
+fontforge
+freetype
+fzf
+gh
+git
+git-flow-avh
+gitversion
+glib
+gradle
+graphite2
+harfbuzz
+helm@3
+hub
+icu4c
+imagemagick
+jpeg
+jq
+kubernetes-cli
+jesseduffield/lazygit/lazygit
+libevent
+libffi
+libgpg-error
+libksba
+libpng
+libsodium
+libtiff
+libtool
+libyaml
+makedepend
+mas
+mono
+nvm
+oniguruma
+openssl@1.1
+p7zip
+pango
+peco
+pixman
+pkg-config
+protobuf
+pyenv
+pyenv-virtualenv
+readline
+reattach-to-user-namespace
+remake
+rename
+rbenv
+scons
+shellcheck
+sphinx-doc
+sqlcipher
+sqlite
+sudolikeaboss
+swagger-codegen
+terraform
+tflint
+the_silver_searcher
+tmux
+ttfautohint
+watch
+watchman
+xz
+yarn
+zeromq
+zsh
+zsh-syntax-highlighting
+
+##################################
+######       CASKS          ######
+##################################
+
+# Application launcher and productivity software
+cask "alfred"
+# Transfer files from and to an Android smartphone
+cask "android-file-transfer"
+# android-sdk
+cask "android-sdk"
+# Memory training application
+cask "anki"
+# FreeMacSoft AppCleaner
+cask "appcleaner"
+# Backup and restore SD cards, USB drives, external HDD, etc
+cask "applepi-baker"
+# en-source electronics prototyping platform
+cask "arduino"
+# AWS Vault is a tool to securely store and access AWS credentials in a development environment.
+cask "aws-vault"
+# Azure Data Studio
+cask "azure-data-studio"
+# UI wireframing tool
+cask "balsamiq-wireframes"
+# Menu bar icon organizer
+cask "bartender"
+# Desktop casting/streaming app for Apple TV and Chromecast
+cask "beamer"
+# Tool to customize input devices and automate computer systems
+cask "bettertouchtool"
+# Compare files and folders
+cask "beyond-compare"
+# Utility that prevents the system from going to sleep
+cask "caffeine"
+# A tool to show Mac caps lock status.
+cask "captin"
+# Web debugging Proxy application
+cask "charles"
+# Color picking application
+cask "colorsnapper"
+# Allows switching between application windows
+cask "contexts"
+# Cyberduck is a libre server and cloud storage browser
+cask "cyberduck"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerized applications and microservices
+cask "docker"
+# .net framework latest
+cask "dotnet-sdk"
+# .net framework 3-1-405
+cask dotnet-sdk3-1-400
+# Flowcharts
+cask "drawio"
+# App for note taking, organizing, task lists, and archiving
+cask "evernote"
+# Tool for running time-saving scripts
+cask "fastscripts"
+# Cross-platform web browser
+cask "firefox"
+# Hosts file editor/manager
+cask "gas-mask"
+# Tool to measure the computer system's performance
+cask "geekbench"
+# gfxCardStatus is an unobtrusive menu bar app for OS X that allows MacBook Pro users to see which apps are affecting their battery life by using the more power-hungry graphics.
+cask "gfxcardstatus"
+# Font Editor
+cask "glyphs"
+# Cross-platform web browser
+# cask "google-chrome"
+# Open-source video transcoder
+cask "handbrake"
+# iPhone management application
+cask "imazing"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# JetBrains tools manager
+cask "jetbrains-toolbox"
+# Open-source screen recorder built with web technology
+cask "kap"
+# Keyboard customizer
+cask "karabiner-elements"
+# Interface for reading and syncing eBooks
+cask "kindle"
+# Open-source Markdown editor
+cask "macdown"
+# Utility to combine binary content files after download
+cask "macpar-deluxe"
+# Free SNMP MIB Browser
+cask "manageengine-mibbrowser"
+# Microsoft Azure Storage Explorer
+cask "microsoft-azure-storage-explorer"
+# Multi-platform web browser
+cask "microsoft-edge"
+# MongoDB Compass
+cask "mongodb-compass"
+# Reverse Proxy
+cask "ngrok"
+# Collaboration platform for API development
+cask "postman"
+# Command-line shell and scripting language
+cask "powershell"
+# Quick look for provisioning profiles
+cask "provisionql"
+# Wireless screen-mirroring application
+cask "reflector"
+# Time optimising application
+cask "rescuetime"
+# Graphical client for Git version control
+cask "sourcetree"
+# SpeedCrunch is a high-precision scientific calculator
+cask "speedcrunch"
+# Spotify
+cask "spotify"
+# Mongo tool
+cask "studio-3t"
+# Sublime Merge
+cask "sublime-merge"
+# Text editor for code, markup and prose
+cask "sublime-text"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
+# Unpacks archive files
+cask "the-unarchiver"
+# Open-source code editor
+cask "visual-studio-code"
+# en-source cross-platform multimedia player
+cask "vlc"
+# Graphical network analyzer and capture tool
+cask "wireshark"
+# Video communication and virtual meeting platform
+# cask "zoomus"
