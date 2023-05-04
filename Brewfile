@@ -81,6 +81,8 @@ brew "jpeg"
 brew "jq"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Lazy git
+brew "jesseduffield/lazygit/lazygit"
 # Asynchronous event library
 brew "libevent"
 # Portable Foreign Function Interface library
