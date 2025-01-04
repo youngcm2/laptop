@@ -1,4 +1,3 @@
-#!/usr/bin/env zx
 $.verbose = false;
 const data = JSON.parse((await $`brew info --json=v2 --installed`).stdout);
 const taps = new Set();

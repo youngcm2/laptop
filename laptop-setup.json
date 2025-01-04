@@ -1,0 +1,1597 @@
+{
+  "brew": [
+    {
+      "tap": "homebrew/core",
+      "token": "abseil",
+      "name": "abseil",
+      "desc": "C++ Common Libraries",
+      "homepage": "https://abseil.io"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "act",
+      "name": "act",
+      "desc": "Run your GitHub Actions locally",
+      "homepage": "https://github.com/nektos/act"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "afsctool",
+      "name": "afsctool",
+      "desc": "Utility for manipulating APFS and ZFS compressed files",
+      "homepage": "https://brkirch.wordpress.com/afsctool/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "aom",
+      "name": "aom",
+      "desc": "Codec library for encoding and decoding AV1 video streams",
+      "homepage": "https://aomedia.googlesource.com/aom"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "apktool",
+      "name": "apktool",
+      "desc": "Tool for reverse engineering 3rd party, closed, binary Android apps",
+      "homepage": "https://github.com/iBotPeaches/Apktool"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "asdf",
+      "name": "asdf",
+      "desc": "Extendable version manager with support for Ruby, Node.js, Erlang & more",
+      "homepage": "https://asdf-vm.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "augeas",
+      "name": "augeas",
+      "desc": "Configuration editing tool and API",
+      "homepage": "https://augeas.net/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "autoconf",
+      "name": "autoconf",
+      "desc": "Automatic configure script builder",
+      "homepage": "https://www.gnu.org/software/autoconf/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "automake",
+      "name": "automake",
+      "desc": "Tool for generating GNU Standards-compliant Makefiles",
+      "homepage": "https://www.gnu.org/software/automake/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "awscli",
+      "name": "awscli",
+      "desc": "Official Amazon AWS command-line interface",
+      "homepage": "https://aws.amazon.com/cli/"
+    },
+    {
+      "tap": "azure/azd",
+      "token": "azd",
+      "name": "azd",
+      "desc": "Azure Developer CLI",
+      "homepage": "https://github.com/azure/azure-dev"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "azure-cli",
+      "name": "azure-cli",
+      "desc": "Microsoft Azure CLI 2.0",
+      "homepage": "https://docs.microsoft.com/cli/azure/overview"
+    },
+    {
+      "tap": "azure/functions",
+      "token": "azure-functions-core-tools@3",
+      "name": "azure-functions-core-tools@3",
+      "desc": "Azure Functions Core Tools 3.0",
+      "homepage": "https://docs.microsoft.com/azure/azure-functions/functions-run-local#run-azure-functions-core-tools"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "benthos",
+      "name": "benthos",
+      "desc": "Stream processor for mundane tasks written in Go",
+      "homepage": "https://github.com/redpanda-data/benthos"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "berkeley-db",
+      "name": "berkeley-db",
+      "desc": "High performance key/value database",
+      "homepage": "https://www.oracle.com/database/technologies/related/berkeleydb.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "berkeley-db@5",
+      "name": "berkeley-db@5",
+      "desc": "High performance key/value database",
+      "homepage": "https://www.oracle.com/database/technologies/related/berkeleydb.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "bison",
+      "name": "bison",
+      "desc": "Parser generator",
+      "homepage": "https://www.gnu.org/software/bison/"
+    },
+    {
+      "tap": "devops-kung-fu/tap",
+      "token": "bomber",
+      "name": "bomber",
+      "desc": "",
+      "homepage": "https://github.com/devops-kung-fu/bomber"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "brotli",
+      "name": "brotli",
+      "desc": "Generic-purpose lossless compression algorithm by Google",
+      "homepage": "https://github.com/google/brotli"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "ca-certificates",
+      "name": "ca-certificates",
+      "desc": "Mozilla CA certificate store",
+      "homepage": "https://curl.se/docs/caextract.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "cairo",
+      "name": "cairo",
+      "desc": "Vector graphics library with cross-device output support",
+      "homepage": "https://cairographics.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "certbot",
+      "name": "certbot",
+      "desc": "Tool to obtain certs from Let's Encrypt and autoenable HTTPS",
+      "homepage": "https://certbot.eff.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "certifi",
+      "name": "certifi",
+      "desc": "Mozilla CA bundle for Python",
+      "homepage": "https://github.com/certifi/python-certifi"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "cffi",
+      "name": "cffi",
+      "desc": "C Foreign Function Interface for Python",
+      "homepage": "https://cffi.readthedocs.io/en/latest/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "cmake",
+      "name": "cmake",
+      "desc": "Cross-platform make",
+      "homepage": "https://www.cmake.org/"
+    },
+    {
+      "tap": "mszostok/tap",
+      "token": "codeowners-validator",
+      "name": "codeowners-validator",
+      "desc": "Ensures the correctness of your CODEOWNERS file.",
+      "homepage": "https://github.com/mszostok/codeowners-validator"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "coreutils",
+      "name": "coreutils",
+      "desc": "GNU File, Shell, and Text utilities",
+      "homepage": "https://www.gnu.org/software/coreutils/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "cosign",
+      "name": "cosign",
+      "desc": "Container Signing",
+      "homepage": "https://github.com/sigstore/cosign"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "crane",
+      "name": "crane",
+      "desc": "Tool for interacting with remote images and registries",
+      "homepage": "https://github.com/google/go-containerregistry"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "cryptography",
+      "name": "cryptography",
+      "desc": "Cryptographic recipes and primitives for Python",
+      "homepage": "https://cryptography.io/en/latest/"
+    },
+    {
+      "tap": "tilt-dev/tap",
+      "token": "ctlptl",
+      "name": "ctlptl",
+      "desc": "Making local Kubernetes clusters easy to set up and tear down",
+      "homepage": "https://ctlptl.dev/"
+    },
+    {
+      "tap": "cyclonedx/cyclonedx",
+      "token": "cyclonedx-cli",
+      "name": "cyclonedx-cli",
+      "desc": "CycloneDX CLI tool for SBOM analysis, merging, diffs and format conversions.",
+      "homepage": "https://cyclonedx.org"
+    },
+    {
+      "tap": "dagger/tap",
+      "token": "dagger",
+      "name": "dagger",
+      "desc": "Dagger is an integrated platform to orchestrate the delivery of applications",
+      "homepage": "https://dagger.io"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "dialog",
+      "name": "dialog",
+      "desc": "Display user-friendly message boxes from shell scripts",
+      "homepage": "https://invisible-island.net/dialog/"
+    },
+    {
+      "tap": "jakehilborn/jakehilborn",
+      "token": "displayplacer",
+      "name": "displayplacer",
+      "desc": "macOS command line utility to configure multi-display resolutions and arrangements. Essentially XRandR for macOS.",
+      "homepage": "https://github.com/jakehilborn/displayplacer"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "dive",
+      "name": "dive",
+      "desc": "Tool for exploring each layer in a docker image",
+      "homepage": "https://github.com/wagoodman/dive"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "dnsmasq",
+      "name": "dnsmasq",
+      "desc": "Lightweight DNS forwarder and DHCP server",
+      "homepage": "https://thekelleys.org.uk/dnsmasq/doc.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "docbook",
+      "name": "docbook",
+      "desc": "Standard XML representation system for technical documents",
+      "homepage": "https://docbook.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "docbook-xsl",
+      "name": "docbook-xsl",
+      "desc": "XML vocabulary to create presentation-neutral documents",
+      "homepage": "https://github.com/docbook/xslt10-stylesheets"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "docker",
+      "name": "docker",
+      "desc": "Pack, ship and run any application as a lightweight container",
+      "homepage": "https://www.docker.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "docker-completion",
+      "name": "docker-completion",
+      "desc": "Bash, Zsh and Fish completion for Docker",
+      "homepage": "https://www.docker.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "docker-compose",
+      "name": "docker-compose",
+      "desc": "Isolated development environments using Docker",
+      "homepage": "https://docs.docker.com/compose/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "docutils",
+      "name": "docutils",
+      "desc": "Text processing system for reStructuredText",
+      "homepage": "https://docutils.sourceforge.io"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "flex",
+      "name": "flex",
+      "desc": "Fast Lexical Analyzer, generates Scanners (tokenizers)",
+      "homepage": "https://github.com/westes/flex"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "fluent-bit",
+      "name": "fluent-bit",
+      "desc": "Fast and Lightweight Logs and Metrics processor",
+      "homepage": "https://github.com/fluent/fluent-bit"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "fontconfig",
+      "name": "fontconfig",
+      "desc": "XML-based font configuration API for X Windows",
+      "homepage": "https://wiki.freedesktop.org/www/Software/fontconfig/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "fontforge",
+      "name": "fontforge",
+      "desc": "Command-line outline and bitmap font editor/converter",
+      "homepage": "https://fontforge.github.io"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "freetype",
+      "name": "freetype",
+      "desc": "Software library to render fonts",
+      "homepage": "https://www.freetype.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "fribidi",
+      "name": "fribidi",
+      "desc": "Implementation of the Unicode BiDi algorithm",
+      "homepage": "https://github.com/fribidi/fribidi"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "fzf",
+      "name": "fzf",
+      "desc": "Command-line fuzzy finder written in Go",
+      "homepage": "https://github.com/junegunn/fzf"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "gdbm",
+      "name": "gdbm",
+      "desc": "GNU database manager",
+      "homepage": "https://www.gnu.org.ua/software/gdbm/"
+    },
+    {
+      "tap": "gefyrahq/gefyra",
+      "token": "gefyra",
+      "name": "gefyra",
+      "desc": "Blazingly-fast, rock-solid, local application development with Kubernetes",
+      "homepage": "https://gefyra.dev"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "gettext",
+      "name": "gettext",
+      "desc": "GNU internationalization (i18n) and localization (l10n) library",
+      "homepage": "https://www.gnu.org/software/gettext/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "gh",
+      "name": "gh",
+      "desc": "GitHub command-line tool",
+      "homepage": "https://cli.github.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "ghostscript",
+      "name": "ghostscript",
+      "desc": "Interpreter for PostScript and PDF",
+      "homepage": "https://www.ghostscript.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "giflib",
+      "name": "giflib",
+      "desc": "Library and utilities for processing GIFs",
+      "homepage": "https://giflib.sourceforge.net/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "git",
+      "name": "git",
+      "desc": "Distributed revision control system",
+      "homepage": "https://git-scm.com"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "git-extras",
+      "name": "git-extras",
+      "desc": "Small git utilities",
+      "homepage": "https://github.com/tj/git-extras"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "gitversion",
+      "name": "gitversion",
+      "desc": "Easy semantic versioning for projects using Git",
+      "homepage": "https://gitversion.net"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "glib",
+      "name": "glib",
+      "desc": "Core application library for C",
+      "homepage": "https://docs.gtk.org/glib/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "gmp",
+      "name": "gmp",
+      "desc": "GNU multiple precision arithmetic library",
+      "homepage": "https://gmplib.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "go",
+      "name": "go",
+      "desc": "Open source programming language to build simple/reliable/efficient software",
+      "homepage": "https://go.dev/"
+    },
+    {
+      "tap": "go-task/tap",
+      "token": "go-task",
+      "name": "go-task",
+      "desc": "Task runner / simpler Make alternative written in Go",
+      "homepage": "https://taskfile.dev"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "gradle",
+      "name": "gradle",
+      "desc": "Open-source build automation tool based on the Groovy and Kotlin DSL",
+      "homepage": "https://www.gradle.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "graphite2",
+      "name": "graphite2",
+      "desc": "Smart font renderer for non-Roman scripts",
+      "homepage": "https://graphite.sil.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "grype",
+      "name": "grype",
+      "desc": "Vulnerability scanner for container images and filesystems",
+      "homepage": "https://github.com/anchore/grype"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "harfbuzz",
+      "name": "harfbuzz",
+      "desc": "OpenType text shaping engine",
+      "homepage": "https://github.com/harfbuzz/harfbuzz"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "helm",
+      "name": "helm",
+      "desc": "Kubernetes package manager",
+      "homepage": "https://helm.sh/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "help2man",
+      "name": "help2man",
+      "desc": "Automatically generate simple man pages",
+      "homepage": "https://www.gnu.org/software/help2man/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "highway",
+      "name": "highway",
+      "desc": "Performance-portable, length-agnostic SIMD with runtime dispatch",
+      "homepage": "https://github.com/google/highway"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "icu4c@75",
+      "name": "icu4c@75",
+      "desc": "C/C++ and Java libraries for Unicode and globalization",
+      "homepage": "https://icu.unicode.org/home"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "icu4c@76",
+      "name": "icu4c@76",
+      "desc": "C/C++ and Java libraries for Unicode and globalization",
+      "homepage": "https://icu.unicode.org/home"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "imagemagick",
+      "name": "imagemagick",
+      "desc": "Tools and libraries to manipulate images in many formats",
+      "homepage": "https://imagemagick.org/index.php"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "imath",
+      "name": "imath",
+      "desc": "Library of 2D and 3D vector, matrix, and math operations",
+      "homepage": "https://www.openexr.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "jasper",
+      "name": "jasper",
+      "desc": "Library for manipulating JPEG-2000 images",
+      "homepage": "https://ece.engr.uvic.ca/~frodo/jasper/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "jbig2dec",
+      "name": "jbig2dec",
+      "desc": "JBIG2 decoder and library (for monochrome documents)",
+      "homepage": "https://github.com/ArtifexSoftware/jbig2dec"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "jpeg",
+      "name": "jpeg",
+      "desc": "Image manipulation library",
+      "homepage": "https://www.ijg.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "jpeg-turbo",
+      "name": "jpeg-turbo",
+      "desc": "JPEG image codec that aids compression and decompression",
+      "homepage": "https://www.libjpeg-turbo.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "jpeg-xl",
+      "name": "jpeg-xl",
+      "desc": "New file format for still image compression",
+      "homepage": "https://jpeg.org/jpegxl/index.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "jq",
+      "name": "jq",
+      "desc": "Lightweight and flexible command-line JSON processor",
+      "homepage": "https://jqlang.github.io/jq/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "jsoncpp",
+      "name": "jsoncpp",
+      "desc": "Library for interacting with JSON",
+      "homepage": "https://github.com/open-source-parsers/jsoncpp"
+    },
+    {
+      "tap": "derailed/k9s",
+      "token": "k9s",
+      "name": "k9s",
+      "desc": "Kubernetes CLI To Manage Your Clusters In Style!",
+      "homepage": "https://k9scli.io/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "kind",
+      "name": "kind",
+      "desc": "Run local Kubernetes cluster in Docker",
+      "homepage": "https://kind.sigs.k8s.io/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "kompose",
+      "name": "kompose",
+      "desc": "Tool to move from `docker-compose` to Kubernetes",
+      "homepage": "https://kompose.io/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "krb5",
+      "name": "krb5",
+      "desc": "Network authentication protocol",
+      "homepage": "https://web.mit.edu/kerberos/"
+    },
+    {
+      "tap": "txn2/tap",
+      "token": "kubefwd",
+      "name": "kubefwd",
+      "desc": "Kubernetes bulk port forwarding utility.",
+      "homepage": "https://github.com/txn2/kubefwd"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "kubernetes-cli",
+      "name": "kubernetes-cli",
+      "desc": "Kubernetes command-line interface",
+      "homepage": "https://kubernetes.io/docs/reference/kubectl/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "kubeseal",
+      "name": "kubeseal",
+      "desc": "Kubernetes controller and tool for one-way encrypted Secrets",
+      "homepage": "https://github.com/bitnami-labs/sealed-secrets"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "kustomize",
+      "name": "kustomize",
+      "desc": "Template-free customization of Kubernetes YAML manifests",
+      "homepage": "https://github.com/kubernetes-sigs/kustomize"
+    },
+    {
+      "tap": "jesseduffield/lazygit",
+      "token": "lazygit",
+      "name": "lazygit",
+      "desc": "A simple terminal UI for git commands, written in Go",
+      "homepage": "https://github.com/jesseduffield/lazygit/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "legit",
+      "name": "legit",
+      "desc": "Command-line interface for Git, optimized for workflow simplicity",
+      "homepage": "https://frostming.github.io/legit/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libde265",
+      "name": "libde265",
+      "desc": "Open h.265 video codec implementation",
+      "homepage": "https://github.com/strukturag/libde265"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libevent",
+      "name": "libevent",
+      "desc": "Asynchronous event library",
+      "homepage": "https://libevent.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libffi",
+      "name": "libffi",
+      "desc": "Portable Foreign Function Interface library",
+      "homepage": "https://sourceware.org/libffi/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libgpg-error",
+      "name": "libgpg-error",
+      "desc": "Common error values for all GnuPG components",
+      "homepage": "https://www.gnupg.org/related_software/libgpg-error/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libheif",
+      "name": "libheif",
+      "desc": "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder",
+      "homepage": "https://www.libde265.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libidn",
+      "name": "libidn",
+      "desc": "International domain name library",
+      "homepage": "https://www.gnu.org/software/libidn/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libidn2",
+      "name": "libidn2",
+      "desc": "International domain name library (IDNA2008, Punycode and TR46)",
+      "homepage": "https://www.gnu.org/software/libidn/#libidn2"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libksba",
+      "name": "libksba",
+      "desc": "X.509 and CMS library",
+      "homepage": "https://www.gnupg.org/related_software/libksba/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "liblqr",
+      "name": "liblqr",
+      "desc": "C/C++ seam carving library",
+      "homepage": "https://liblqr.wikidot.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libomp",
+      "name": "libomp",
+      "desc": "LLVM's OpenMP runtime library",
+      "homepage": "https://openmp.llvm.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libpng",
+      "name": "libpng",
+      "desc": "Library for manipulating PNG images",
+      "homepage": "http://www.libpng.org/pub/png/libpng.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libpq",
+      "name": "libpq",
+      "desc": "Postgres C API library",
+      "homepage": "https://www.postgresql.org/docs/current/libpq.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libraw",
+      "name": "libraw",
+      "desc": "Library for reading RAW files from digital photo cameras",
+      "homepage": "https://www.libraw.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libsodium",
+      "name": "libsodium",
+      "desc": "NaCl networking and cryptography library",
+      "homepage": "https://libsodium.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libspiro",
+      "name": "libspiro",
+      "desc": "Library to simplify the drawing of curves",
+      "homepage": "https://github.com/fontforge/libspiro"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libtiff",
+      "name": "libtiff",
+      "desc": "TIFF library and utilities",
+      "homepage": "https://libtiff.gitlab.io/libtiff/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libtool",
+      "name": "libtool",
+      "desc": "Generic library support script",
+      "homepage": "https://www.gnu.org/software/libtool/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libuninameslist",
+      "name": "libuninameslist",
+      "desc": "Library of Unicode names and annotation data",
+      "homepage": "https://github.com/fontforge/libuninameslist"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libunistring",
+      "name": "libunistring",
+      "desc": "C string library for manipulating Unicode strings",
+      "homepage": "https://www.gnu.org/software/libunistring/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libvmaf",
+      "name": "libvmaf",
+      "desc": "Perceptual video quality assessment based on multi-method fusion",
+      "homepage": "https://github.com/Netflix/vmaf"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libx11",
+      "name": "libx11",
+      "desc": "X.Org: Core X11 protocol client library",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libxau",
+      "name": "libxau",
+      "desc": "X.Org: A Sample Authorization Protocol for X",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libxcb",
+      "name": "libxcb",
+      "desc": "X.Org: Interface to the X Window System protocol",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libxdmcp",
+      "name": "libxdmcp",
+      "desc": "X.Org: X Display Manager Control Protocol library",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libxext",
+      "name": "libxext",
+      "desc": "X.Org: Library for common extensions to the X11 protocol",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libxrender",
+      "name": "libxrender",
+      "desc": "X.Org: Library for the Render Extension to the X11 protocol",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "libyaml",
+      "name": "libyaml",
+      "desc": "YAML Parser",
+      "homepage": "https://github.com/yaml/libyaml"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "little-cms2",
+      "name": "little-cms2",
+      "desc": "Color management engine supporting ICC profiles",
+      "homepage": "https://www.littlecms.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "logcli",
+      "name": "logcli",
+      "desc": "Run LogQL queries against a Loki server",
+      "homepage": "https://grafana.com/loki"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "lz4",
+      "name": "lz4",
+      "desc": "Extremely Fast Compression algorithm",
+      "homepage": "https://lz4.github.io/lz4/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "lzip",
+      "name": "lzip",
+      "desc": "LZMA-based compression program similar to gzip or bzip2",
+      "homepage": "https://www.nongnu.org/lzip/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "lzo",
+      "name": "lzo",
+      "desc": "Real-time data compression library",
+      "homepage": "https://www.oberhumer.com/opensource/lzo/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "m4",
+      "name": "m4",
+      "desc": "Macro processing language",
+      "homepage": "https://www.gnu.org/software/m4/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "mackup",
+      "name": "mackup",
+      "desc": "Keep your Mac's application settings in sync",
+      "homepage": "https://github.com/lra/mackup"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "make",
+      "name": "make",
+      "desc": "Utility for directing compilation",
+      "homepage": "https://www.gnu.org/software/make/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "makedepend",
+      "name": "makedepend",
+      "desc": "Creates dependencies in makefiles",
+      "homepage": "https://x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "mas",
+      "name": "mas",
+      "desc": "Mac App Store command-line interface",
+      "homepage": "https://github.com/mas-cli/mas"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "meson",
+      "name": "meson",
+      "desc": "Fast and user friendly build system",
+      "homepage": "https://mesonbuild.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "minikube",
+      "name": "minikube",
+      "desc": "Run a Kubernetes cluster locally",
+      "homepage": "https://minikube.sigs.k8s.io/"
+    },
+    {
+      "tap": "metalbear-co/mirrord",
+      "token": "mirrord",
+      "name": "mirrord",
+      "desc": "Connect your local process and your cloud environment",
+      "homepage": "https://mirrord.dev"
+    },
+    {
+      "tap": null,
+      "token": "mitmproxy",
+      "name": "mitmproxy",
+      "desc": "Intercept, modify, replay, save HTTP/S traffic",
+      "homepage": "https://mitmproxy.org"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "mpdecimal",
+      "name": "mpdecimal",
+      "desc": "Library for decimal floating point arithmetic",
+      "homepage": "https://www.bytereef.org/mpdecimal/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "ninja",
+      "name": "ninja",
+      "desc": "Small build system for use with gyp or CMake",
+      "homepage": "https://ninja-build.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "nvm",
+      "name": "nvm",
+      "desc": "Manage multiple Node.js versions",
+      "homepage": "https://github.com/nvm-sh/nvm"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "oniguruma",
+      "name": "oniguruma",
+      "desc": "Regular expressions library",
+      "homepage": "https://github.com/kkos/oniguruma/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "openexr",
+      "name": "openexr",
+      "desc": "High dynamic-range image file format",
+      "homepage": "https://www.openexr.com/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "openjdk",
+      "name": "openjdk",
+      "desc": "Development kit for the Java programming language",
+      "homepage": "https://openjdk.java.net/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "openjpeg",
+      "name": "openjpeg",
+      "desc": "Library for JPEG-2000 image manipulation",
+      "homepage": "https://www.openjpeg.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "openssl@1.1",
+      "name": "openssl@1.1",
+      "desc": "Cryptography and SSL/TLS Toolkit",
+      "homepage": "https://openssl.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "openssl@3",
+      "name": "openssl@3",
+      "desc": "Cryptography and SSL/TLS Toolkit",
+      "homepage": "https://openssl-library.org"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pango",
+      "name": "pango",
+      "desc": "Framework for layout and rendering of i18n text",
+      "homepage": "https://www.gtk.org/docs/architecture/pango"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pcre2",
+      "name": "pcre2",
+      "desc": "Perl compatible regular expressions library with a new API",
+      "homepage": "https://www.pcre.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "perl",
+      "name": "perl",
+      "desc": "Highly capable, feature-rich programming language",
+      "homepage": "https://www.perl.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pixman",
+      "name": "pixman",
+      "desc": "Low-level library for pixel manipulation",
+      "homepage": "https://cairographics.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pkgconf",
+      "name": "pkgconf",
+      "desc": "Package compiler and linker metadata toolkit",
+      "homepage": "https://github.com/pkgconf/pkgconf"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "proctools",
+      "name": "proctools",
+      "desc": "OpenBSD and Darwin versions of pgrep, pkill, and pfind",
+      "homepage": "https://proctools.sourceforge.net/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "protobuf",
+      "name": "protobuf",
+      "desc": "Protocol buffers (Google's data interchange format)",
+      "homepage": "https://protobuf.dev/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pv",
+      "name": "pv",
+      "desc": "Monitor data's progress through a pipe",
+      "homepage": "https://www.ivarch.com/programs/pv.shtml"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pycparser",
+      "name": "pycparser",
+      "desc": "C parser in Python",
+      "homepage": "https://github.com/eliben/pycparser"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pyenv",
+      "name": "pyenv",
+      "desc": "Python version management",
+      "homepage": "https://github.com/pyenv/pyenv"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pyenv-virtualenv",
+      "name": "pyenv-virtualenv",
+      "desc": "Pyenv plugin to manage virtualenv",
+      "homepage": "https://github.com/pyenv/pyenv-virtualenv"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "pyenv-virtualenvwrapper",
+      "name": "pyenv-virtualenvwrapper",
+      "desc": "Alternative to pyenv for managing virtualenvs",
+      "homepage": "https://github.com/pyenv/pyenv-virtualenvwrapper"
+    },
+    {
+      "tap": null,
+      "token": "python-docopt",
+      "name": "python-docopt",
+      "desc": "Pythonic command-line arguments parser, that will make you smile",
+      "homepage": "http://docopt.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "python-packaging",
+      "name": "python-packaging",
+      "desc": "Core utilities for Python packages",
+      "homepage": "https://packaging.pypa.io/"
+    },
+    {
+      "tap": null,
+      "token": "python-pyparsing",
+      "name": "python-pyparsing",
+      "desc": "Python library for creating PEG parsers",
+      "homepage": "https://github.com/pyparsing/pyparsing"
+    },
+    {
+      "tap": null,
+      "token": "python-pytz",
+      "name": "python-pytz",
+      "desc": "Python library for cross platform timezone",
+      "homepage": "https://pythonhosted.org/pytz/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "python-setuptools",
+      "name": "python-setuptools",
+      "desc": "Easily download, build, install, upgrade, and uninstall Python packages",
+      "homepage": "https://setuptools.pypa.io/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "python@3.11",
+      "name": "python@3.11",
+      "desc": "Interpreted, interactive, object-oriented programming language",
+      "homepage": "https://www.python.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "python@3.12",
+      "name": "python@3.12",
+      "desc": "Interpreted, interactive, object-oriented programming language",
+      "homepage": "https://www.python.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "python@3.13",
+      "name": "python@3.13",
+      "desc": "Interpreted, interactive, object-oriented programming language",
+      "homepage": "https://www.python.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "readline",
+      "name": "readline",
+      "desc": "Library for command-line editing",
+      "homepage": "https://tiswww.case.edu/php/chet/readline/rltop.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "ruby@3.0",
+      "name": "ruby@3.0",
+      "desc": "Powerful, clean, object-oriented scripting language",
+      "homepage": "https://www.ruby-lang.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "sevenzip",
+      "name": "sevenzip",
+      "desc": "7-Zip is a file archiver with a high compression ratio",
+      "homepage": "https://7-zip.org"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "shared-mime-info",
+      "name": "shared-mime-info",
+      "desc": "Database of common MIME types",
+      "homepage": "https://wiki.freedesktop.org/www/Software/shared-mime-info"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "six",
+      "name": "six",
+      "desc": "Python 2 and 3 compatibility utilities",
+      "homepage": "https://github.com/benjaminp/six"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "skaffold",
+      "name": "skaffold",
+      "desc": "Easy and Repeatable Kubernetes Development",
+      "homepage": "https://skaffold.dev/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "sqlite",
+      "name": "sqlite",
+      "desc": "Command-line interface for SQLite",
+      "homepage": "https://sqlite.org/index.html"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "syft",
+      "name": "syft",
+      "desc": "CLI for generating a Software Bill of Materials from container images",
+      "homepage": "https://github.com/anchore/syft"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "tilt",
+      "name": "tilt",
+      "desc": "Define your dev environment as code. For microservice apps on Kubernetes",
+      "homepage": "https://tilt.dev/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "trash",
+      "name": "trash",
+      "desc": "CLI tool that moves files or folder to the trash",
+      "homepage": "https://hasseg.org/trash/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "tree",
+      "name": "tree",
+      "desc": "Display directories as trees (with optional color/HTML output)",
+      "homepage": "https://oldmanprogrammer.net/source.php?dir=projects/tree"
+    },
+    {
+      "tap": "uffizzicloud/tap",
+      "token": "uffizzi",
+      "name": "uffizzi",
+      "desc": "Self-serve developer platforms in minutes, not months with k8s virtual clusters",
+      "homepage": "https://uffizzi.com"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "unixodbc",
+      "name": "unixodbc",
+      "desc": "ODBC 3 connectivity for UNIX",
+      "homepage": "https://www.unixodbc.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "util-macros",
+      "name": "util-macros",
+      "desc": "X.Org: Set of autoconf macros used to build other xorg packages",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "vectordotdev/brew",
+      "token": "vector",
+      "name": "vector",
+      "desc": "A High-Performance Log, Metrics, and Events Router",
+      "homepage": "https://github.com/timberio/vector"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "webp",
+      "name": "webp",
+      "desc": "Image format providing lossless and lossy compression for web images",
+      "homepage": "https://developers.google.com/speed/webp/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "wget",
+      "name": "wget",
+      "desc": "Internet file retriever",
+      "homepage": "https://www.gnu.org/software/wget/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "woff2",
+      "name": "woff2",
+      "desc": "Utilities to create and convert Web Open Font File (WOFF) files",
+      "homepage": "https://github.com/google/woff2"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "x265",
+      "name": "x265",
+      "desc": "H.265/HEVC encoder",
+      "homepage": "https://bitbucket.org/multicoreware/x265_git"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "xorgproto",
+      "name": "xorgproto",
+      "desc": "X.Org: Protocol Headers",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "xtrans",
+      "name": "xtrans",
+      "desc": "X.Org: X Network Transport layer shared code",
+      "homepage": "https://www.x.org/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "xz",
+      "name": "xz",
+      "desc": "General-purpose data compression with high compression ratio",
+      "homepage": "https://tukaani.org/xz/"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "yq",
+      "name": "yq",
+      "desc": "Process YAML, JSON, XML, CSV and properties documents from the CLI",
+      "homepage": "https://github.com/mikefarah/yq"
+    },
+    {
+      "tap": "homebrew/core",
+      "token": "zstd",
+      "name": "zstd",
+      "desc": "Zstandard is a real-time compression algorithm",
+      "homepage": "https://facebook.github.io/zstd/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "adoptopenjdk",
+      "name": "AdoptOpenJDK Java Development Kit",
+      "desc": "JDK from the Java User Group (JUG)",
+      "homepage": "https://adoptopenjdk.net/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "altair-graphql-client",
+      "name": "Altair GraphQL Client",
+      "desc": "GraphQL client",
+      "homepage": "https://altair.sirmuel.design/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "arc",
+      "name": "Arc",
+      "desc": "Chromium based browser",
+      "homepage": "https://arc.net/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "bartender",
+      "name": "Bartender",
+      "desc": "Menu bar icon organiser",
+      "homepage": "https://www.macbartender.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "bettertouchtool",
+      "name": "BetterTouchTool",
+      "desc": "Tool to customise input devices and automate computer systems",
+      "homepage": "https://folivora.ai/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "beyond-compare",
+      "name": "Beyond Compare",
+      "desc": "Compare files and folders",
+      "homepage": "https://www.scootersoftware.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "bitwarden",
+      "name": "Bitwarden",
+      "desc": "Desktop password and login vault",
+      "homepage": "https://bitwarden.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "charles",
+      "name": "Charles",
+      "desc": "Web debugging Proxy application",
+      "homepage": "https://www.charlesproxy.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "cleanmymac",
+      "name": "CleanMyMac",
+      "desc": "Tool to remove unnecessary files and folders from disk",
+      "homepage": "https://macpaw.com/cleanmymac"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "codeql",
+      "name": "CodeQL",
+      "desc": "Semantic code analysis engine",
+      "homepage": "https://codeql.github.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "contexts",
+      "name": "Contexts",
+      "desc": "Allows switching between application windows",
+      "homepage": "https://contexts.co/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "cornerstone",
+      "name": "Cornerstone",
+      "desc": "Subversion client",
+      "homepage": "https://cornerstone.assembla.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "diffmerge",
+      "name": "DiffMerge",
+      "desc": "Visually compare and merge files",
+      "homepage": "https://www.sourcegear.com/diffmerge/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "dotnet-sdk",
+      "name": ".NET SDK",
+      "desc": "Developer platform",
+      "homepage": "https://www.microsoft.com/net/core#macos"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "dropbox",
+      "name": "Dropbox",
+      "desc": "Client for the Dropbox cloud storage service",
+      "homepage": "https://www.dropbox.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "figma",
+      "name": "Figma",
+      "desc": "Collaborative team software",
+      "homepage": "https://www.figma.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "firefox",
+      "name": "Mozilla Firefox",
+      "desc": "Web browser",
+      "homepage": "https://www.mozilla.org/firefox/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "gas-mask",
+      "name": "Gas Mask",
+      "desc": "Hosts file editor/manager",
+      "homepage": "http://clockwise.ee/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "gitbutler",
+      "name": "GitButler",
+      "desc": "Git client for simultaneous branches on top of your existing workflow",
+      "homepage": "https://gitbutler.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "google-chrome",
+      "name": "Google Chrome",
+      "desc": "Web browser",
+      "homepage": "https://www.google.com/chrome/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "google-cloud-sdk",
+      "name": "Google Cloud SDK",
+      "desc": "Set of tools to manage resources and applications hosted on Google Cloud",
+      "homepage": "https://cloud.google.com/sdk/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "insomnia",
+      "name": "Insomnia",
+      "desc": "HTTP and GraphQL Client",
+      "homepage": "https://insomnia.rest/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "jetbrains-toolbox",
+      "name": "JetBrains Toolbox",
+      "desc": "JetBrains tools manager",
+      "homepage": "https://www.jetbrains.com/toolbox-app/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "licecap",
+      "name": "LICEcap",
+      "desc": "Animated screen capture application",
+      "homepage": "https://www.cockos.com/licecap/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "ngrok",
+      "name": "ngrok",
+      "desc": "Reverse proxy, secure introspectable tunnels to localhost",
+      "homepage": "https://ngrok.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "p4v",
+      "name": "Perforce Helix Visual Client",
+      "desc": "Visual client for Helix Core",
+      "homepage": "https://www.perforce.com/products/helix-core-apps/helix-visual-client-p4v"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "postman",
+      "name": "Postman",
+      "desc": "Collaboration platform for API development",
+      "homepage": "https://www.postman.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "powershell",
+      "name": "PowerShell",
+      "desc": "Command-line shell and scripting language",
+      "homepage": "https://github.com/PowerShell/PowerShell"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "qlmarkdown",
+      "name": "sbarex QLMarkdown",
+      "desc": "Quick Look generator for Markdown files",
+      "homepage": "https://github.com/sbarex/QLMarkdown"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "rapidapi",
+      "name": "RapidAPI",
+      "desc": "HTTP client that helps testing and describing APIs",
+      "homepage": "https://paw.cloud/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "raycast",
+      "name": "Raycast",
+      "desc": "Control your tools with a few keystrokes",
+      "homepage": "https://raycast.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "sequel-pro",
+      "name": "Sequel Pro",
+      "desc": "MySQL/MariaDB database management platform",
+      "homepage": "https://www.sequelpro.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "snagit",
+      "name": "Snagit",
+      "desc": "Screen capture software",
+      "homepage": "https://www.techsmith.com/screen-capture.html"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "sourcetree",
+      "name": "Atlassian SourceTree",
+      "desc": "Graphical client for Git version control",
+      "homepage": "https://www.sourcetreeapp.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "spotify",
+      "name": "Spotify",
+      "desc": "Music streaming service",
+      "homepage": "https://www.spotify.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "sublime-text",
+      "name": "Sublime Text",
+      "desc": "Text editor for code, markup and prose",
+      "homepage": "https://www.sublimetext.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "suspicious-package",
+      "name": "Suspicious Package",
+      "desc": "Application for inspecting installer packages",
+      "homepage": "https://www.mothersruin.com/software/SuspiciousPackage/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "textexpander",
+      "name": "TextExpander",
+      "desc": "Inserts pre-made snippets of text anywhere",
+      "homepage": "https://textexpander.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "unpkg",
+      "name": "unpkg",
+      "desc": "Unarchiver for .pkg and .mpkg that unpacks all the files in a package",
+      "homepage": "https://www.timdoug.com/unpkg/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "visual-studio-code",
+      "name": "Microsoft Visual Studio Code",
+      "desc": "Open-source code editor",
+      "homepage": "https://code.visualstudio.com/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "vlc",
+      "name": "VLC media player",
+      "desc": "Multimedia player",
+      "homepage": "https://www.videolan.org/vlc/"
+    },
+    {
+      "tap": "homebrew/cask",
+      "token": "warp",
+      "name": "Warp",
+      "desc": "Rust-based terminal",
+      "homepage": "https://www.warp.dev/"
+    }
+  ],
+  "shell": {
+    "shell": "zsh",
+    "contents": "IyBJZiB5b3UgY29tZSBmcm9tIGJhc2ggeW91IG1pZ2h0IGhhdmUgdG8gY2hhbmdlIHlvdXIgJFBBVEguCiMgZXhwb3J0IFBBVEg9JEhPTUUvYmluOi91c3IvbG9jYWwvYmluOiRQQVRICgojIFBhdGggdG8geW91ciBvaC1teS16c2ggaW5zdGFsbGF0aW9uLgpleHBvcnQgWlNIPSIkSE9NRS8ub2gtbXktenNoIgoKIyBTZXQgbmFtZSBvZiB0aGUgdGhlbWUgdG8gbG9hZCAtLS0gaWYgc2V0IHRvICJyYW5kb20iLCBpdCB3aWxsCiMgbG9hZCBhIHJhbmRvbSB0aGVtZSBlYWNoIHRpbWUgb2gtbXktenNoIGlzIGxvYWRlZCwgaW4gd2hpY2ggY2FzZSwKIyB0byBrbm93IHdoaWNoIHNwZWNpZmljIG9uZSB3YXMgbG9hZGVkLCBydW46IGVjaG8gJFJBTkRPTV9USEVNRQojIFNlZSBodHRwczovL2dpdGh1Yi5jb20vb2hteXpzaC9vaG15enNoL3dpa2kvVGhlbWVzClpTSF9USEVNRT0icm9iYnlydXNzZWxsIgojIFpTSF9USEVNRT0icG93ZXJsZXZlbDEway9wb3dlcmxldmVsMTBrIgoKIyBTZXQgbGlzdCBvZiB0aGVtZXMgdG8gcGljayBmcm9tIHdoZW4gbG9hZGluZyBhdCByYW5kb20KIyBTZXR0aW5nIHRoaXMgdmFyaWFibGUgd2hlbiBaU0hfVEhFTUU9cmFuZG9tIHdpbGwgY2F1c2UgenNoIHRvIGxvYWQKIyBhIHRoZW1lIGZyb20gdGhpcyB2YXJpYWJsZSBpbnN0ZWFkIG9mIGxvb2tpbmcgaW4gJFpTSC90aGVtZXMvCiMgSWYgc2V0IHRvIGFuIGVtcHR5IGFycmF5LCB0aGlzIHZhcmlhYmxlIHdpbGwgaGF2ZSBubyBlZmZlY3QuCiMgWlNIX1RIRU1FX1JBTkRPTV9DQU5ESURBVEVTPSggInJvYmJ5cnVzc2VsbCIgImFnbm9zdGVyIiApCgojIFVuY29tbWVudCB0aGUgZm9sbG93aW5nIGxpbmUgdG8gdXNlIGNhc2Utc2Vuc2l0aXZlIGNvbXBsZXRpb24uCiMgQ0FTRV9TRU5TSVRJVkU9InRydWUiCgojIFVuY29tbWVudCB0aGUgZm9sbG93aW5nIGxpbmUgdG8gdXNlIGh5cGhlbi1pbnNlbnNpdGl2ZSBjb21wbGV0aW9uLgojIENhc2Utc2Vuc2l0aXZlIGNvbXBsZXRpb24gbXVzdCBiZSBvZmYuIF8gYW5kIC0gd2lsbCBiZSBpbnRlcmNoYW5nZWFibGUuCiMgSFlQSEVOX0lOU0VOU0lUSVZFPSJ0cnVlIgoKIyBVbmNvbW1lbnQgb25lIG9mIHRoZSBmb2xsb3dpbmcgbGluZXMgdG8gY2hhbmdlIHRoZSBhdXRvLXVwZGF0ZSBiZWhhdmlvcgojIHpzdHlsZSAnOm9tejp1cGRhdGUnIG1vZGUgZGlzYWJsZWQgICMgZGlzYWJsZSBhdXRvbWF0aWMgdXBkYXRlcwojIHpzdHlsZSAnOm9tejp1cGRhdGUnIG1vZGUgYXV0byAgICAgICMgdXBkYXRlIGF1dG9tYXRpY2FsbHkgd2l0aG91dCBhc2tpbmcKIyB6c3R5bGUgJzpvbXo6dXBkYXRlJyBtb2RlIHJlbWluZGVyICAjIGp1c3QgcmVtaW5kIG1lIHRvIHVwZGF0ZSB3aGVuIGl0J3MgdGltZQoKIyBVbmNvbW1lbnQgdGhlIGZvbGxvd2luZyBsaW5lIHRvIGNoYW5nZSBob3cgb2Z0ZW4gdG8gYXV0by11cGRhdGUgKGluIGRheXMpLgojIHpzdHlsZSAnOm9tejp1cGRhdGUnIGZyZXF1ZW5jeSAxMwoKIyBVbmNvbW1lbnQgdGhlIGZvbGxvd2luZyBsaW5lIGlmIHBhc3RpbmcgVVJMcyBhbmQgb3RoZXIgdGV4dCBpcyBtZXNzZWQgdXAuCiMgRElTQUJMRV9NQUdJQ19GVU5DVElPTlM9InRydWUiCgojIFVuY29tbWVudCB0aGUgZm9sbG93aW5nIGxpbmUgdG8gZGlzYWJsZSBjb2xvcnMgaW4gbHMuCiMgRElTQUJMRV9MU19DT0xPUlM9InRydWUiCgojIFVuY29tbWVudCB0aGUgZm9sbG93aW5nIGxpbmUgdG8gZGlzYWJsZSBhdXRvLXNldHRpbmcgdGVybWluYWwgdGl0bGUuCiMgRElTQUJMRV9BVVRPX1RJVExFPSJ0cnVlIgoKIyBVbmNvbW1lbnQgdGhlIGZvbGxvd2luZyBsaW5lIHRvIGVuYWJsZSBjb21tYW5kIGF1dG8tY29ycmVjdGlvbi4KIyBFTkFCTEVfQ09SUkVDVElPTj0idHJ1ZSIKCiMgVW5jb21tZW50IHRoZSBmb2xsb3dpbmcgbGluZSB0byBkaXNwbGF5IHJlZCBkb3RzIHdoaWxzdCB3YWl0aW5nIGZvciBjb21wbGV0aW9uLgojIFlvdSBjYW4gYWxzbyBzZXQgaXQgdG8gYW5vdGhlciBzdHJpbmcgdG8gaGF2ZSB0aGF0IHNob3duIGluc3RlYWQgb2YgdGhlIGRlZmF1bHQgcmVkIGRvdHMuCiMgZS5nLiBDT01QTEVUSU9OX1dBSVRJTkdfRE9UUz0iJUZ7eWVsbG93fXdhaXRpbmcuLi4lZiIKIyBDYXV0aW9uOiB0aGlzIHNldHRpbmcgY2FuIGNhdXNlIGlzc3VlcyB3aXRoIG11bHRpbGluZSBwcm9tcHRzIGluIHpzaCA8IDUuNy4xIChzZWUgIzU3NjUpCiMgQ09NUExFVElPTl9XQUlUSU5HX0RPVFM9InRydWUiCgojIFVuY29tbWVudCB0aGUgZm9sbG93aW5nIGxpbmUgaWYgeW91IHdhbnQgdG8gZGlzYWJsZSBtYXJraW5nIHVudHJhY2tlZCBmaWxlcwojIHVuZGVyIFZDUyBhcyBkaXJ0eS4gVGhpcyBtYWtlcyByZXBvc2l0b3J5IHN0YXR1cyBjaGVjayBmb3IgbGFyZ2UgcmVwb3NpdG9yaWVzCiMgbXVjaCwgbXVjaCBmYXN0ZXIuCiMgRElTQUJMRV9VTlRSQUNLRURfRklMRVNfRElSVFk9InRydWUiCgojIFVuY29tbWVudCB0aGUgZm9sbG93aW5nIGxpbmUgaWYgeW91IHdhbnQgdG8gY2hhbmdlIHRoZSBjb21tYW5kIGV4ZWN1dGlvbiB0aW1lCiMgc3RhbXAgc2hvd24gaW4gdGhlIGhpc3RvcnkgY29tbWFuZCBvdXRwdXQuCiMgWW91IGNhbiBzZXQgb25lIG9mIHRoZSBvcHRpb25hbCB0aHJlZSBmb3JtYXRzOgojICJtbS9kZC95eXl5InwiZGQubW0ueXl5eSJ8Inl5eXktbW0tZGQiCiMgb3Igc2V0IGEgY3VzdG9tIGZvcm1hdCB1c2luZyB0aGUgc3RyZnRpbWUgZnVuY3Rpb24gZm9ybWF0IHNwZWNpZmljYXRpb25zLAojIHNlZSAnbWFuIHN0cmZ0aW1lJyBmb3IgZGV0YWlscy4KIyBISVNUX1NUQU1QUz0ibW0vZGQveXl5eSIKCiMgV291bGQgeW91IGxpa2UgdG8gdXNlIGFub3RoZXIgY3VzdG9tIGZvbGRlciB0aGFuICRaU0gvY3VzdG9tPwojIFpTSF9DVVNUT009L3BhdGgvdG8vbmV3LWN1c3RvbS1mb2xkZXIKCiMgV2hpY2ggcGx1Z2lucyB3b3VsZCB5b3UgbGlrZSB0byBsb2FkPwojIFN0YW5kYXJkIHBsdWdpbnMgY2FuIGJlIGZvdW5kIGluICRaU0gvcGx1Z2lucy8KIyBDdXN0b20gcGx1Z2lucyBtYXkgYmUgYWRkZWQgdG8gJFpTSF9DVVNUT00vcGx1Z2lucy8KIyBFeGFtcGxlIGZvcm1hdDogcGx1Z2lucz0ocmFpbHMgZ2l0IHRleHRtYXRlIHJ1YnkgbGlnaHRob3VzZSkKIyBBZGQgd2lzZWx5LCBhcyB0b28gbWFueSBwbHVnaW5zIHNsb3cgZG93biBzaGVsbCBzdGFydHVwLgpwbHVnaW5zPShnaXQga3ViZWN0bCkKCnNvdXJjZSAkWlNIL29oLW15LXpzaC5zaAoKZXhwb3J0IEVESVRPUj0nc3VibCAtdycKCiMgVXNlciBjb25maWd1cmF0aW9uCgojIGV4cG9ydCBNQU5QQVRIPSIvdXNyL2xvY2FsL21hbjokTUFOUEFUSCIKCiMgWW91IG1heSBuZWVkIHRvIG1hbnVhbGx5IHNldCB5b3VyIGxhbmd1YWdlIGVudmlyb25tZW50CiMgZXhwb3J0IExBTkc9ZW5fVVMuVVRGLTgKCiMgUHJlZmVycmVkIGVkaXRvciBmb3IgbG9jYWwgYW5kIHJlbW90ZSBzZXNzaW9ucwojIGlmIFtbIC1uICRTU0hfQ09OTkVDVElPTiBdXTsgdGhlbgojICAgZXhwb3J0IEVESVRPUj0ndmltJwojIGVsc2UKIyAgIGV4cG9ydCBFRElUT1I9J212aW0nCiMgZmkKCiMgQ29tcGlsYXRpb24gZmxhZ3MKIyBleHBvcnQgQVJDSEZMQUdTPSItYXJjaCB4ODZfNjQiCgojIFNldCBwZXJzb25hbCBhbGlhc2VzLCBvdmVycmlkaW5nIHRob3NlIHByb3ZpZGVkIGJ5IG9oLW15LXpzaCBsaWJzLAojIHBsdWdpbnMsIGFuZCB0aGVtZXMuIEFsaWFzZXMgY2FuIGJlIHBsYWNlZCBoZXJlLCB0aG91Z2ggb2gtbXktenNoCiMgdXNlcnMgYXJlIGVuY291cmFnZWQgdG8gZGVmaW5lIGFsaWFzZXMgd2l0aGluIHRoZSBaU0hfQ1VTVE9NIGZvbGRlci4KIyBGb3IgYSBmdWxsIGxpc3Qgb2YgYWN0aXZlIGFsaWFzZXMsIHJ1biBgYWxpYXNgLgojCiMgRXhhbXBsZSBhbGlhc2VzCmFsaWFzIHpzaGNvbmZpZz0ic3VibCB+Ly56c2hyYyIKIyBhbGlhcyBvaG15enNoPSJzdWJsIH4vLm9oLW15LXpzaCIKCiNHSVQgQWxpYXNlcwphbGlhcyBnY0FtPSJnaXQgYWRkIC1BICYmIGdpdCBjb21taXQgLW0iCmFsaWFzIGdjQT0iZ2l0IGFkZCAtQSAmJiBnaXQgY29tbWl0IC1lIgphbGlhcyBnY0F6PSJnaXQgYWRkIC1BICYmIGN6IgphbGlhcyBnYW1lbmQ9ImdpdCBhZGQgLUEgJiYgZ2l0IGNvbW1pdCAtLWFtZW5kIC0tbm8tZWRpdCIKYWxpYXMgZ2NBbiE9ImdpdCBhZGQgLUEgJiYgZ2l0IGNvbW1pdCAtLWFtZW5kIC0tbm8tZWRpdCIKYWxpYXMgZ3JvbGxzPSJnaXQgcmVzZXQgLS1zb2Z0IEhFQUR+MSIKYWxpYXMgZ3JvbGw9ImdpdCByZXNldCAtLW1peGVkIEhFQUR+MSIKYWxpYXMgZ2ZhbD0iZ2ZhIC0tZm9yY2UgJiYgZ2dwdWxsIgphbGlhcyBnYmRhcj0iZ2l0IGJyYW5jaCAtLWFsbCAtLW1lcmdlZCByZW1vdGVzL29yaWdpbi8kKGdpdF9tYWluX2JyYW5jaCkgfCBncmVwIC0taW52ZXJ0LW1hdGNoICQoZ2l0X21haW5fYnJhbmNoKSB8IGdyZXAgLS1pbnZlcnQtbWF0Y2ggSEVBRCB8IGdyZXAgJ3JlbW90ZXMvb3JpZ2luLycgfCBjdXQgLWQgJy8nIC1mIDMtIHwgeGFyZ3MgLW4gMSBnaXQgcHVzaCAtLWRlbGV0ZSBvcmlnaW4iCmFsaWFzIGdjcm49ImdpdCBjaGVja291dCByZWxlYXNlL25leHQiCmFsaWFzIGdjb21mPSJnaXQgY2hlY2tvdXQgb3JpZ2luL21haW4iCgoKI2dpdCBmdW5jdGlvbnMKZ21iKCkKewoJZ2l0IG1lcmdlLWJhc2UgJChjdXJyZW50X2JyYW5jaCkgJChnaXRfbWFpbl9icmFuY2gpCn0KCmdtYnIoKQp7CglnaXQgcmVzZXQgJChnbWIpCn0KCmZ1bmN0aW9uIHNldHVwX2VudigpeyAJCQoJbmFtZT0kezElL30KCXZlcnNpb249JHsyJS99CglweWVudiB2aXJ0dWFsZW52ICR2ZXJzaW9uICRuYW1lIAoJcHllbnYgYWN0aXZhdGUgJG5hbWUKCXBpcCBpbnN0YWxsIC0tdXBncmFkZSBwaXAJCQp9CgpmdW5jdGlvbiBjbGVhbnVwX2VudigpewoJY3VycmVudD0kKHB5ZW52IHNoZWxsKQoJcHllbnYgZGVhY3RpdmF0ZSAkMQoJcHllbnYgdW5pbnN0YWxsIC1mICRjdXJyZW50Cn0KCiMgZnVuY3Rpb24gYnVpbGRfdHVyYmluZSgpewojIAlkb2NrZXIgcnVuIC12ICQocHdkKTovaG9tZS90dXJiaW5lL3RhcmdldC9wbHVnaW4gbmV4dXMuc3dpbWxhbmUuaW86NTAwMC9zd2ltbGFuZS90dXJiaW5lLWNsaTpsYXRlc3QgcGx1Z2luOmJ1aWxkIC1vIC4vcGx1Z2luL2Rpc3QgLi9wbHVnaW4KIyB9CgpsZygpCnsKICAgIGV4cG9ydCBMQVpZR0lUX05FV19ESVJfRklMRT1+Ly5sYXp5Z2l0L25ld2RpcgoKICAgIGxhenlnaXQgIiRAIgoKICAgIGlmIFsgLWYgJExBWllHSVRfTkVXX0RJUl9GSUxFIF07IHRoZW4KICAgICAgICAgICAgY2QgIiQoY2F0ICRMQVpZR0lUX05FV19ESVJfRklMRSkiCiAgICAgICAgICAgIHJtIC1mICRMQVpZR0lUX05FV19ESVJfRklMRSA+IC9kZXYvbnVsbAogICAgZmkKfQoKZnVuY3Rpb24gZ2hhYygpIHsKICAjIGZvciBpIGluIDUgNCAzIDIgMQogICMgZG8KICAgIGdoIGFwaSByZXBvcy8kMS9hY3Rpb25zL3J1bnNcP3BhZ2U9MVwmcGVyX3BhZ2U9NzUgfCBqcSAtciAnLndvcmtmbG93X3J1bnNbXSB8IHNlbGVjdCguY29uY2x1c2lvbiA9PSAic3VjY2VzcyIgb3IgLmNvbmNsdXNpb24gPT0gImZhaWx1cmUiIG9yIC5jb25jbHVzaW9uID09ICJjYW5jZWxsZWQiIG9yIC5jb25jbHVzaW9uID09ICJza2lwcGVkIikgfCAiXCguaWQpIicgfCB4YXJncyAtbjEgLUkgJ3t9JyBnaCBhcGkgcmVwb3MvJDEvYWN0aW9ucy9ydW5zL3t9IC1YIERFTEVURSAtLXNpbGVudAogICMgZG9uZQogICMgZ2ggYXBpIHJlcG9zLyQxL2FjdGlvbnMvcnVuc1w/cGFnZT0xXCZwZXJfcGFnZT03NSBcCiAgIyAgIHwgIGpxIC1yICcud29ya2Zsb3dfcnVuc1tdIHwgIlwoLmlkKVx0XCgubmFtZSlcdFwoLnN0YXR1cylcdFwoLmV2ZW50KVx0XCguaGVhZF9zaGEpIicKfQoKCiMgTG9hZCBweWVudiBpbnRvIHRoZSBzaGVsbCBieSBhZGRpbmcKIyB0aGUgZm9sbG93aW5nIHRvIH4vLnpzaHJjOgoKIyBldmFsICIkKHB5ZW52IGluaXQgLSkiCiMgZXZhbCAiJChweWVudiB2aXJ0dWFsZW52LWluaXQgLSkiCgpleHBvcnQgTlZNX0RJUj0iJChbIC16ICIke1hER19DT05GSUdfSE9NRS19IiBdICYmIHByaW50ZiAlcyAiJHtIT01FfS8ubnZtIiB8fCBwcmludGYgJXMgIiR7WERHX0NPTkZJR19IT01FfS9udm0iKSIKWyAtcyAiJE5WTV9ESVIvbnZtLnNoIiBdICYmIFwuICIkTlZNX0RJUi9udm0uc2giICMgVGhpcyBsb2FkcyBudm0KCiMgLiB+Ly5hc2RmL3BsdWdpbnMvamF2YS9zZXQtamF2YS1ob21lLnpzaAoKIyBldmFsICIkKGdoIGNvbXBsZXRpb24gLXMgenNoKSJzdWIKCiMgc291cmNlIC9Vc2Vycy9jaHJpcy55b3VuZy8uYmVhbWVyeS9iZWFtZXJ5L2JlYW1lcnkuc2gKCiMgZXZhbCAKCiMgU1dTREtfQUNfWlNIX1NFVFVQX1BBVEg9L1VzZXJzL2NocmlzLnlvdW5nL0xpYnJhcnkvQ2FjaGVzL0Bzd2ltbGFuZS9zd2ltbGFuZS1zZGsvYXV0b2NvbXBsZXRlL3pzaF9zZXR1cCAmJiB0ZXN0IC1mICRTV1NES19BQ19aU0hfU0VUVVBfUEFUSCAmJiBzb3VyY2UgJFNXU0RLX0FDX1pTSF9TRVRVUF9QQVRIOyAjIHN3c2RrIGF1dG9jb21wbGV0ZSBzZXR1cAoKZXhwb3J0IFBBVEg9IiRIT01FLy5nb2JyZXcvY3VycmVudC9iaW46JEhPTUUvLmdvYnJldy9iaW46JFBBVEgiCiMgQWRkIFJWTSB0byBQQVRIIGZvciBzY3JpcHRpbmcuIE1ha2Ugc3VyZSB0aGlzIGlzIHRoZSBsYXN0IFBBVEggdmFyaWFibGUgY2hhbmdlLgoKZXhwb3J0IFBBVEg9Ii91c3IvbG9jYWwvb3B0L3J1YnkvYmluOiRQQVRIIgojZXhwb3J0IFNES1JPT1Q9Ii9BcHBsaWNhdGlvbnMvWGNvZGUuYXBwL0NvbnRlbnRzL0RldmVsb3Blci9QbGF0Zm9ybXMvTWFjT1NYLnBsYXRmb3JtL0RldmVsb3Blci9TREtzL01hY09TWDEyLjMuc2RrIgojZ251bWFrZSByZXBsYWNlCiMgUEFUSD0iL3Vzci9sb2NhbC9vcHQvbWFrZS9saWJleGVjL2dudWJpbjokUEFUSCIKCiNleHBvcnQgUEFUSD0iL3Vzci9sb2NhbC9vcHQvb3BlbnNzbEAzL2JpbjokUEFUSCIKCiNleHBvcnQgTERGTEFHUz0iLUwvdXNyL2xvY2FsL29wdC9vcGVuc3NsQDMvbGliIgojZXhwb3J0IENQUEZMQUdTPSItSS91c3IvbG9jYWwvb3B0L29wZW5zc2xAMy9pbmNsdWRlIgojZXhwb3J0IFBLR19DT05GSUdfUEFUSD0iL3Vzci9sb2NhbC9vcHQvb3BlbnNzbEAzL2xpYi9wa2djb25maWciCiNleHBvcnQgQUNUX0dJVEhVQl9UT0tFTj0iZ2hwX3RLalFIaFVQYkwxRWtMaDZsMVpTUm9rTHdJSjVSUTJicW5nbyIJCiNleHBvcnQgR0lUSFVCX1RPS0VOX1BSSVZBVEU9ImdocF9ENTZQNzZPazJibW9USEgxRWZTeDNZVjJQUWE4V2MzR0ttUlgiCmV4cG9ydCBRVUFZX1RPS0VOPTJFd09URlFNODFCbExEanZsU0VSbmdMTmFEY3NzbGNBeXhINU83eDZleHBvcnQgUEFUSD0iL3Vzci9sb2NhbC9zYmluOiRQQVRIIgpleHBvcnQgUEFUSD0kSE9NRS9ob21lYnJldy9iaW46JFBBVEgKZXhwb3J0IFBBVEg9JFBBVEg6JERPVE5FVF9ST09UOiRET1RORVRfUk9PVC90b29scwoKIyBleHBvcnQgRFlMRF9MSUJSQVJZX1BBVEg9IiRIT01FL2hvbWVicmV3L29wdC9vcGVuc3NsQDEuMS9saWIiCmV4cG9ydCBEWUxEX0xJQlJBUllfUEFUSD0iL1VzZXJzL2NocmlzLnlvdW5nL2hvbWVicmV3L29wdC9vcGVuc3NsQDEuMS9saWIiCmV4cG9ydCBEWUxEX0ZBTExCQUNLX0xJQlJBUllfUEFUSD0iJERZTERfTElCUkFSWV9QQVRIIgoKIyBTcGVjaWZ5IHlvdXIgZGVmYXVsdHMgaW4gdGhpcyBlbnZpcm9ubWVudCB2YXJpYWJsZQpleHBvcnQgSE9NRUJSRVdfQ0FTS19PUFRTPSItLWFwcGRpcj1+L0FwcGxpY2F0aW9ucyIKCnNvdXJjZSAvVXNlcnMvY2hyaXMueW91bmcvLmRvY2tlci9pbml0LXpzaC5zaCB8fCB0cnVlICMgQWRkZWQgYnkgRG9ja2VyIERlc2t0b3AKIyBleHBvcnQgRE9DS0VSX0RFRkFVTFRfUExBVEZPUk09bGludXgvYW1kNjQKZXhwb3J0IERPQ0tFUl9IT1NUPSJ1bml4Oi8vL1VzZXJzL2NocmlzLnlvdW5nLy5kb2NrZXIvcnVuL2RvY2tlci5zb2NrIgoKIyBTV0lNTEFORSBQUk9KRUNUCmV4cG9ydCBBUk1fQ09NUE9TRV9PVkVSUklERV9GSUxFX0FSRz0iLWYgZG9ja2VyLWNvbXBvc2UuYXJtNjQueW1sIgpleHBvcnQgQVJNX09WRVJSSURFPTEgCmFsaWFzIHB5dGhvbj1weXRob24zCgphbGlhcyBhd3Nsb2NhbD0iQVdTX0FDQ0VTU19LRVlfSUQ9dGVzdCBBV1NfU0VDUkVUX0FDQ0VTU19LRVk9dGVzdCBBV1NfREVGQVVMVF9SRUdJT049JHtERUZBVUxUX1JFR0lPTjotJEFXU19ERUZBVUxUX1JFR0lPTn0gYXdzIC0tZW5kcG9pbnQtdXJsPWh0dHA6Ly8ke0xPQ0FMU1RBQ0tfSE9TVDotbG9jYWxob3N0fTo0NTY2IgoKU1dJTUxBTkVfRmVhdHVyZU1hbmFnZW1lbnRfX0R5bmFtaWNPcmNoZXN0cmF0aW9uPXRydWUKZXhwb3J0IFBBVEg9IiRQQVRIOiRIT01FL2xvY2FsL2JpbiIKCmFsaWFzIGs9a3ViZWN0bAphbGlhcyB0cD10ZWxlcHJlc2VuY2UKYWxpYXMgdD10YXNrCgojIyMgTUFOQUdFRCBCWSBSQU5DSEVSIERFU0tUT1AgU1RBUlQgKERPIE5PVCBFRElUKQpleHBvcnQgUEFUSD0iL1VzZXJzL2NocmlzLnlvdW5nLy5yZC9iaW46JFBBVEgiCiMjIyBNQU5BR0VEIEJZIFJBTkNIRVIgREVTS1RPUCBFTkQgKERPIE5PVCBFRElUKQoKIyBzb3VyY2UgPChrdWJlY3RsIGNvbXBsZXRpb24genNoKQoKIyBMb2FkIHB5ZW52IGF1dG9tYXRpY2FsbHkgYnkgYXBwZW5kaW5nCiMgdGhlIGZvbGxvd2luZyB0byB+Ly56c2hyYzoKCmV4cG9ydCBQWUVOVl9ST09UPSIkSE9NRS8ucHllbnYiCmNvbW1hbmQgLXYgcHllbnYgPi9kZXYvbnVsbCB8fCBleHBvcnQgUEFUSD0iJFBZRU5WX1JPT1QvYmluOiRQQVRIIgpldmFsICIkKHB5ZW52IGluaXQgLSkiCgpQQVRIPSIvVXNlcnMvY2hyaXMueW91bmcvaG9tZWJyZXcvb3B0L21ha2UvbGliZXhlYy9nbnViaW46JFBBVEgiCmV4cG9ydCBQQVRIPSIkUEFUSDpgeWFybiBnbG9iYWwgYmluIDI+ID4oZ3JlcCAtdiB3YXJuaW5nIDE+JjIpYCIKCmFsaWFzIG9wZW5zc2w9IiRIT01FL2hvbWVicmV3L29wdC9vcGVuc3NsQDEuMS9iaW4vb3BlbnNzbCIKCgojIExvYWQgQW5ndWxhciBDTEkgYXV0b2NvbXBsZXRpb24uCiNzb3VyY2UgPChuZyBjb21wbGV0aW9uIHNjcmlwdCkKCmV4cG9ydCBDWVBSRVNTX1BBU1NXT1JEPSJBbnlQYXNzd29yZFlvdVdhbnQiCmV4cG9ydCBDWVBSRVNTX1VTRVJOQU1FPSJhbnlVc2VyTmFtZSIgICAgICAgICAgCmV4cG9ydCBDWVBSRVNTX0VNQUlMX1BBU1NXT1JEPSJBbnlQYXNzd29yZFlvdVdhbnQiICAgICAgICAKZXhwb3J0IENZUFJFU1NfRVhDSEFOR0VfUEFTU1dPUkQ9IkFueVBhc3N3b3JkWW91V2FudCIgICAgICAgCmV4cG9ydCBDWVBSRVNTX2Jhc2VVcmw9Imh0dHBzOi8vbG9jYWxob3N0IiAgCgpleHBvcnQgVFVSQklORV9ERVZFTE9QTUVOVF9QQVNTV09SRD0iU3VwZXJhZG1pbkAyMDIzIgpleHBvcnQgR09CSU49IiRIT01FL2dvL2JpbiIKZXhwb3J0IFBBVEg9IiRQQVRIOiRHT0JJTiIKZXhwb3J0IFNXSU1MQU5FX1VSTD0iaHR0cHM6Ly9ob3N0LmRvY2tlci5pbnRlcm5hbDo0NDQzIgpleHBvcnQgU1dJTUxBTkVfVVNFUk5BTUU9InN1cGVyYWRtaW5Ac3dpbWxhbmUuY29tIgpleHBvcnQgU1dJTUxBTkVfUEFTU1dPUkQ9IlN1cGVyYWRtaW5AMjAyMyIKZXhwb3J0IFZPTFRBX0hPTUU9IiRIT01FLy52b2x0YSIKZXhwb3J0IFBBVEg9IiRWT0xUQV9IT01FL2JpbjokUEFUSCIKZXhwb3J0IEZQQVRIPSIkRlBBVEg6JEhPTUUvLnRhc2tmaWxlIgpleHBvcnQgUEFUSD0iJHtLUkVXX1JPT1Q6LSRIT01FLy5rcmV3fS9iaW46JFBBVEgiCmV4cG9ydCBQQVRIPSRQQVRIOi9Vc2Vycy9jaHJpcy55b3VuZy8ubGlua2VyZDIvYmluCgpldmFsICIkKGxvZ2NsaSAtLWNvbXBsZXRpb24tc2NyaXB0LWJhc2gpIgoKdWxpbWl0IC1uIDY1NTM2IHVubGltaXRlZAoKIyBldmFsICQobWluaWt1YmUgZG9ja2VyLWVudikJCgphdXRvbG9hZCAtVSBjb21waW5pdApjb21waW5pdCAtaQpleHBvcnQgRE9UTkVUX1JPT1Q9IiRIT01FLy5kb3RuZXQiCmV4cG9ydCBQQVRIPSIkUEFUSDokRE9UTkVUX1JPT1Q6JERPVE5FVF9ST09UL3Rvb2xzIgphbGlhcyBjaHJvbWUtdGVzdD0ifi9BcHBsaWNhdGlvbnMvQ2hyb21lIFRlc3RpbmcuYXBwL0NvbnRlbnRzL01hY09TL0dvb2dsZSBDaHJvbWUiCmV4cG9ydCBQQVRIPSIkSE9NRS9ob21lYnJldy9vcHQvb3Blbmpkay9iaW46JFBBVEgiCmV4cG9ydCBQQVRIPSIkSE9NRS8uYmluOiRQQVRIIgoK"
+  }
+}
