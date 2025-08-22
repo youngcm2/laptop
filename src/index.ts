@@ -4,9 +4,11 @@ import {Options} from "./options";
 import {Brew} from "./collect-brew";
 import {Shell} from "./collect-shell-config";
 import {Applications} from "./collect-applications";
+import {SensitiveCollector} from "./collect-sensitive";
 import {BrewInstaller} from "./install-brew";
 import {ShellInstaller} from "./install-shell";
 import {ApplicationsInstaller} from "./install-applications";
+import {SensitiveInstaller} from "./install-sensitive";
 import fs from "fs-extra";
 import archiver from 'archiver';
 import path from 'path';
@@ -25,18 +27,47 @@ const parser = yargs(hideBin(process.argv))
                     describe: 'Output zip file path',
                     type: 'string',
                     default: `laptop-setup-${new Date().toISOString().replace(/:/g, '-').replace(/\..+/, '').replace('T', '_')}.zip`
+                })
+                .option('include-sensitive', {
+                    alias: 's',
+                    describe: 'Include sensitive files (SSH keys, tokens, etc.)',
+                    type: 'boolean',
+                    default: false
+                })
+                .option('encrypt', {
+                    alias: 'e',
+                    describe: 'Encrypt sensitive files',
+                    type: 'boolean',
+                    default: false
                 });
         },
         async (argv) => {
             const outputZip = argv.output as string;
+            const includeSensitive = argv['include-sensitive'] as boolean;
+            const encrypt = argv.encrypt as boolean;
+            
             console.log('Collecting data from laptop');
             console.log(`Output will be saved to: ${path.resolve(outputZip)}`);
+            
+            if (includeSensitive) {
+                console.log('⚠️  Including sensitive files (SSH keys, tokens, etc.)');
+                if (encrypt) {
+                    console.log('🔐 Sensitive files will be encrypted');
+                }
+            }
+            
             const brew = new Brew();
             const shell = new Shell();
             const applications = new Applications();
             const brewData = await brew.collect();
             const shellConfig = await shell.collect();
             const applicationsData = await applications.collect();
+            
+            let sensitiveData = null;
+            if (includeSensitive) {
+                const sensitiveCollector = new SensitiveCollector(encrypt);
+                sensitiveData = await sensitiveCollector.collect();
+            }
 
             // Create temporary directory for files
             const tempDir = path.join(process.cwd(), '.laptop-setup-temp');
@@ -45,11 +76,17 @@ const parser = yargs(hideBin(process.argv))
             try {
                 // Write JSON data to temp directory
                 const jsonPath = path.join(tempDir, 'laptop-setup.json');
-                await fs.writeJson(jsonPath, {
+                const setupData: any = {
                     brew: brewData,
                     shell: shellConfig,
                     applications: applicationsData
-                }, {spaces: 2});
+                };
+                
+                if (sensitiveData) {
+                    setupData.sensitive = sensitiveData;
+                }
+                
+                await fs.writeJson(jsonPath, setupData, {spaces: 2});
 
                 // Create a zip file
                 const output = fs.createWriteStream(outputZip);
@@ -98,6 +135,57 @@ const parser = yargs(hideBin(process.argv))
                     .join('\n');
                 await fs.writeFile(appStoreListPath, appStoreList);
                 archive.file(appStoreListPath, { name: 'appstore_apps.txt' });
+                
+                // Add sensitive files if collected
+                if (sensitiveData && sensitiveData.files) {
+                    const sensitiveDir = path.join(tempDir, 'sensitive');
+                    await fs.ensureDir(sensitiveDir);
+                    
+                    // Save encryption key if used
+                    if (sensitiveData.encryptionKey) {
+                        const keyPath = path.join(tempDir, 'ENCRYPTION_KEY.txt');
+                        const keyContent = `
+IMPORTANT: Save this encryption key securely!
+This key is needed to decrypt your sensitive files.
+
+Encryption Key: ${sensitiveData.encryptionKey}
+
+To decrypt files, use the --decrypt flag during installation.
+`;
+                        await fs.writeFile(keyPath, keyContent);
+                        archive.file(keyPath, { name: 'ENCRYPTION_KEY.txt' });
+                    }
+                    
+                    // Add sensitive files
+                    for (const file of sensitiveData.files) {
+                        if (file.exists && file.content) {
+                            const fileName = file.relativePath.replace(/\//g, '_');
+                            const filePath = path.join(sensitiveDir, fileName);
+                            await fs.writeFile(filePath, file.content);
+                            archive.file(filePath, { name: `sensitive/${fileName}` });
+                        }
+                    }
+                    
+                    // Add sensitive files summary
+                    const summaryPath = path.join(tempDir, 'sensitive_files_summary.txt');
+                    const summary = `
+Sensitive Files Collected
+========================
+
+Total files: ${sensitiveData.summary.totalFiles}
+SSH Keys: ${sensitiveData.summary.sshKeys}
+AWS Files: ${sensitiveData.summary.awsFiles}
+NPM Tokens: ${sensitiveData.summary.npmTokens}
+Other Secrets: ${sensitiveData.summary.otherSecrets}
+
+Encryption: ${encrypt ? 'ENABLED 🔐' : 'DISABLED ⚠️'}
+
+Files collected:
+${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.size} bytes)`).join('\n')}
+`;
+                    await fs.writeFile(summaryPath, summary);
+                    archive.file(summaryPath, { name: 'sensitive_files_summary.txt' });
+                }
 
                 // Finalize the archive
                 await archive.finalize();
@@ -125,12 +213,24 @@ const parser = yargs(hideBin(process.argv))
                 .option('brew-prefix', {
                     describe: 'Custom Homebrew installation prefix (e.g., ~/homebrew)',
                     type: 'string'
+                })
+                .option('decrypt-key', {
+                    alias: 'd',
+                    describe: 'Decryption key for sensitive files',
+                    type: 'string'
+                })
+                .option('skip-sensitive', {
+                    describe: 'Skip installation of sensitive files',
+                    type: 'boolean',
+                    default: false
                 });
         },
         async (argv) => {
             const zipPath = argv.zipfile as string;
             const useProfile = argv.profile as boolean;
             const brewPrefix = argv.brewPrefix as string | undefined;
+            const decryptKey = argv['decrypt-key'] as string | undefined;
+            const skipSensitive = argv['skip-sensitive'] as boolean;
 
             if (!await fs.pathExists(zipPath)) {
                 console.error(`Error: File not found: ${zipPath}`);
@@ -164,7 +264,12 @@ const parser = yargs(hideBin(process.argv))
                 console.log('1. Homebrew packages (formulae and casks)');
                 console.log('2. Shell configurations (.zshrc, .bashrc, etc.)');
                 console.log('3. Applications (App Store apps)');
-                console.log('4. All of the above');
+                if (config.sensitive && !skipSensitive) {
+                    console.log('4. Sensitive files (SSH keys, tokens, etc.) - REQUIRES DECRYPTION KEY');
+                    console.log('5. All of the above');
+                } else {
+                    console.log('4. All of the above');
+                }
                 console.log('');
 
                 // For now, we'll install everything. In a real implementation,
@@ -191,6 +296,21 @@ const parser = yargs(hideBin(process.argv))
                 if (config.applications) {
                     const appsInstaller = new ApplicationsInstaller();
                     await appsInstaller.install(config.applications, { useProfile });
+                }
+
+                // Install sensitive files
+                if (config.sensitive && !skipSensitive) {
+                    const sensitiveInstaller = new SensitiveInstaller();
+                    const sensitiveDir = path.join(tempDir, 'sensitive');
+                    
+                    if (await fs.pathExists(sensitiveDir)) {
+                        await sensitiveInstaller.install(config.sensitive, sensitiveDir, {
+                            decryptionKey: decryptKey,
+                            skipConfirmation: false
+                        });
+                    } else {
+                        console.log('\nNo sensitive files found in archive.');
+                    }
                 }
 
                 console.log('\n✅ Installation complete!');
