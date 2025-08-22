@@ -209,3 +209,17 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Project specific
+laptop-setup.zip
+.laptop-setup-temp/
+.laptop-install-temp/
+miro_exports/
+application_install_report.txt
+sea-config.json
+
+# SEA build artifacts
+dist/sea-prep.blob
+dist/laptop-setup
+dist/bundle.js
+dist/*.bundle.js
+
