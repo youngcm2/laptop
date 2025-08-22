@@ -29,12 +29,14 @@ export class SensitiveCollector {
     private homeDir: string;
     private useEncryption: boolean;
     private encryptionKey?: string;
+    private storeContent: boolean;
     
-    constructor(useEncryption: boolean = false) {
+    constructor(useEncryption: boolean = false, storeContent: boolean = true) {
         this.homeDir = os.homedir();
         this.useEncryption = useEncryption;
+        this.storeContent = storeContent;
         
-        if (useEncryption) {
+        if (useEncryption && storeContent) {
             // Generate a random encryption key
             this.encryptionKey = crypto.randomBytes(32).toString('hex');
         }
@@ -163,14 +165,18 @@ export class SensitiveCollector {
                 const stat = await fs.stat(filePath);
                 const permissions = (stat.mode & parseInt('777', 8)).toString(8);
                 
-                // Read file content
-                let content = await fs.readFile(filePath, 'utf-8');
+                let content: string | undefined;
                 let encrypted = false;
                 
-                // Encrypt if enabled
-                if (this.useEncryption && this.encryptionKey) {
-                    content = this.encrypt(content);
-                    encrypted = true;
+                // Only read content if we're storing it
+                if (this.storeContent) {
+                    content = await fs.readFile(filePath, 'utf-8');
+                    
+                    // Encrypt if enabled
+                    if (this.useEncryption && this.encryptionKey) {
+                        content = this.encrypt(content);
+                        encrypted = true;
+                    }
                 }
                 
                 files.push({
@@ -183,7 +189,8 @@ export class SensitiveCollector {
                     content
                 });
                 
-                console.log(`  Collected: ${relativePath} (${stat.size} bytes)${encrypted ? ' 🔐' : ''}`);
+                const status = this.storeContent ? 'Collected' : 'Found';
+                console.log(`  ${status}: ${relativePath} (${stat.size} bytes)${encrypted ? ' 🔐' : ''}`);
             } catch (error) {
                 console.warn(`  Error reading ${relativePath}:`, error);
                 files.push({

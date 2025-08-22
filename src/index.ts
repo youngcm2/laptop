@@ -39,20 +39,30 @@ const parser = yargs(hideBin(process.argv))
                     describe: 'Encrypt sensitive files',
                     type: 'boolean',
                     default: false
+                })
+                .option('store-sensitive', {
+                    describe: 'Actually store sensitive files in the zip (default: false - only shows what would be collected)',
+                    type: 'boolean',
+                    default: false
                 });
         },
         async (argv) => {
             const outputZip = argv.output as string;
             const includeSensitive = argv['include-sensitive'] as boolean;
             const encrypt = argv.encrypt as boolean;
+            const storeSensitive = argv['store-sensitive'] as boolean;
             
             console.log('Collecting data from laptop');
             console.log(`Output will be saved to: ${path.resolve(outputZip)}`);
             
             if (includeSensitive) {
-                console.log('⚠️  Including sensitive files (SSH keys, tokens, etc.)');
-                if (encrypt) {
-                    console.log('🔐 Sensitive files will be encrypted');
+                if (storeSensitive) {
+                    console.log('⚠️  Including sensitive files (SSH keys, tokens, etc.)');
+                    if (encrypt) {
+                        console.log('🔐 Sensitive files will be encrypted');
+                    }
+                } else {
+                    console.log('📋 Scanning for sensitive files (dry run - files will NOT be stored)');
                 }
             }
             
@@ -65,7 +75,7 @@ const parser = yargs(hideBin(process.argv))
             
             let sensitiveData = null;
             if (includeSensitive) {
-                const sensitiveCollector = new SensitiveCollector(encrypt);
+                const sensitiveCollector = new SensitiveCollector(encrypt, storeSensitive);
                 sensitiveData = await sensitiveCollector.collect();
             }
 
@@ -138,38 +148,10 @@ const parser = yargs(hideBin(process.argv))
                 
                 // Add sensitive files if collected
                 if (sensitiveData && sensitiveData.files) {
-                    const sensitiveDir = path.join(tempDir, 'sensitive');
-                    await fs.ensureDir(sensitiveDir);
-                    
-                    // Save encryption key if used
-                    if (sensitiveData.encryptionKey) {
-                        const keyPath = path.join(tempDir, 'ENCRYPTION_KEY.txt');
-                        const keyContent = `
-IMPORTANT: Save this encryption key securely!
-This key is needed to decrypt your sensitive files.
-
-Encryption Key: ${sensitiveData.encryptionKey}
-
-To decrypt files, use the --decrypt flag during installation.
-`;
-                        await fs.writeFile(keyPath, keyContent);
-                        archive.file(keyPath, { name: 'ENCRYPTION_KEY.txt' });
-                    }
-                    
-                    // Add sensitive files
-                    for (const file of sensitiveData.files) {
-                        if (file.exists && file.content) {
-                            const fileName = file.relativePath.replace(/\//g, '_');
-                            const filePath = path.join(sensitiveDir, fileName);
-                            await fs.writeFile(filePath, file.content);
-                            archive.file(filePath, { name: `sensitive/${fileName}` });
-                        }
-                    }
-                    
-                    // Add sensitive files summary
+                    // Always add the summary
                     const summaryPath = path.join(tempDir, 'sensitive_files_summary.txt');
                     const summary = `
-Sensitive Files Collected
+Sensitive Files ${storeSensitive ? 'Collected' : 'Found (NOT STORED)'}
 ========================
 
 Total files: ${sensitiveData.summary.totalFiles}
@@ -179,12 +161,45 @@ NPM Tokens: ${sensitiveData.summary.npmTokens}
 Other Secrets: ${sensitiveData.summary.otherSecrets}
 
 Encryption: ${encrypt ? 'ENABLED 🔐' : 'DISABLED ⚠️'}
+Stored in ZIP: ${storeSensitive ? 'YES ⚠️' : 'NO (dry run)'}
 
-Files collected:
+Files ${storeSensitive ? 'collected' : 'found'}:
 ${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.size} bytes)`).join('\n')}
+${!storeSensitive ? '\n⚠️  To actually store these files, use --store-sensitive flag' : ''}
 `;
                     await fs.writeFile(summaryPath, summary);
                     archive.file(summaryPath, { name: 'sensitive_files_summary.txt' });
+                    
+                    // Only store files if explicitly requested
+                    if (storeSensitive) {
+                        const sensitiveDir = path.join(tempDir, 'sensitive');
+                        await fs.ensureDir(sensitiveDir);
+                        
+                        // Save encryption key if used
+                        if (sensitiveData.encryptionKey) {
+                            const keyPath = path.join(tempDir, 'ENCRYPTION_KEY.txt');
+                            const keyContent = `
+IMPORTANT: Save this encryption key securely!
+This key is needed to decrypt your sensitive files.
+
+Encryption Key: ${sensitiveData.encryptionKey}
+
+To decrypt files, use the --decrypt-key flag during installation.
+`;
+                            await fs.writeFile(keyPath, keyContent);
+                            archive.file(keyPath, { name: 'ENCRYPTION_KEY.txt' });
+                        }
+                        
+                        // Add sensitive files
+                        for (const file of sensitiveData.files) {
+                            if (file.exists && file.content) {
+                                const fileName = file.relativePath.replace(/\//g, '_');
+                                const filePath = path.join(sensitiveDir, fileName);
+                                await fs.writeFile(filePath, file.content);
+                                archive.file(filePath, { name: `sensitive/${fileName}` });
+                            }
+                        }
+                    }
                 }
 
                 // Finalize the archive
