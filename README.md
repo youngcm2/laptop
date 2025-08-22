@@ -27,19 +27,14 @@ Basic collection:
 npm run collect
 ```
 
-Scan for sensitive files (dry run - no files stored):
+Include sensitive files (SSH keys, tokens, etc.):
 ```bash
 npm run collect -- --include-sensitive
 ```
 
-Actually store sensitive files in the backup:
+Include sensitive files with encryption:
 ```bash
-npm run collect -- --include-sensitive --store-sensitive
-```
-
-Store sensitive files with encryption:
-```bash
-npm run collect -- --include-sensitive --store-sensitive --encrypt
+npm run collect -- --include-sensitive --encrypt
 ```
 
 Custom output location:
@@ -104,8 +99,8 @@ npm run install laptop-setup.zip --skip-sensitive
 
 ## Security
 
-- Sensitive files are only scanned by default with `--include-sensitive` (dry run)
-- Files are only stored in the backup when explicitly requested with `--store-sensitive`
+- Sensitive files are only included when explicitly requested with `--include-sensitive`
+- Clear warning is shown when including sensitive files
 - Optional AES-256-CBC encryption for sensitive data with `--encrypt`
 - Encryption key is generated automatically and saved separately
 - Existing files are backed up before being overwritten during installation

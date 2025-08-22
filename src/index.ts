@@ -30,7 +30,7 @@ const parser = yargs(hideBin(process.argv))
                 })
                 .option('include-sensitive', {
                     alias: 's',
-                    describe: 'Include sensitive files (SSH keys, tokens, etc.)',
+                    describe: 'Include sensitive files (SSH keys, tokens, etc.) in the backup',
                     type: 'boolean',
                     default: false
                 })
@@ -39,30 +39,28 @@ const parser = yargs(hideBin(process.argv))
                     describe: 'Encrypt sensitive files',
                     type: 'boolean',
                     default: false
-                })
-                .option('store-sensitive', {
-                    describe: 'Actually store sensitive files in the zip (default: false - only shows what would be collected)',
-                    type: 'boolean',
-                    default: false
                 });
         },
         async (argv) => {
             const outputZip = argv.output as string;
             const includeSensitive = argv['include-sensitive'] as boolean;
             const encrypt = argv.encrypt as boolean;
-            const storeSensitive = argv['store-sensitive'] as boolean;
             
             console.log('Collecting data from laptop');
             console.log(`Output will be saved to: ${path.resolve(outputZip)}`);
             
             if (includeSensitive) {
-                if (storeSensitive) {
-                    console.log('⚠️  Including sensitive files (SSH keys, tokens, etc.)');
-                    if (encrypt) {
-                        console.log('🔐 Sensitive files will be encrypted');
-                    }
+                console.log('\n⚠️  WARNING: Including sensitive files (SSH keys, tokens, etc.)');
+                console.log('This will include:');
+                console.log('  - SSH keys and configurations');
+                console.log('  - AWS/Cloud credentials');
+                console.log('  - Authentication tokens');
+                console.log('  - Other secret files\n');
+                
+                if (encrypt) {
+                    console.log('🔐 Sensitive files will be encrypted');
                 } else {
-                    console.log('📋 Scanning for sensitive files (dry run - files will NOT be stored)');
+                    console.log('⚠️  Sensitive files will NOT be encrypted!');
                 }
             }
             
@@ -75,7 +73,7 @@ const parser = yargs(hideBin(process.argv))
             
             let sensitiveData = null;
             if (includeSensitive) {
-                const sensitiveCollector = new SensitiveCollector(encrypt, storeSensitive);
+                const sensitiveCollector = new SensitiveCollector(encrypt);
                 sensitiveData = await sensitiveCollector.collect();
             }
 
@@ -148,10 +146,38 @@ const parser = yargs(hideBin(process.argv))
                 
                 // Add sensitive files if collected
                 if (sensitiveData && sensitiveData.files) {
-                    // Always add the summary
+                    const sensitiveDir = path.join(tempDir, 'sensitive');
+                    await fs.ensureDir(sensitiveDir);
+                    
+                    // Save encryption key if used
+                    if (sensitiveData.encryptionKey) {
+                        const keyPath = path.join(tempDir, 'ENCRYPTION_KEY.txt');
+                        const keyContent = `
+IMPORTANT: Save this encryption key securely!
+This key is needed to decrypt your sensitive files.
+
+Encryption Key: ${sensitiveData.encryptionKey}
+
+To decrypt files, use the --decrypt-key flag during installation.
+`;
+                        await fs.writeFile(keyPath, keyContent);
+                        archive.file(keyPath, { name: 'ENCRYPTION_KEY.txt' });
+                    }
+                    
+                    // Add sensitive files
+                    for (const file of sensitiveData.files) {
+                        if (file.exists && file.content) {
+                            const fileName = file.relativePath.replace(/\//g, '_');
+                            const filePath = path.join(sensitiveDir, fileName);
+                            await fs.writeFile(filePath, file.content);
+                            archive.file(filePath, { name: `sensitive/${fileName}` });
+                        }
+                    }
+                    
+                    // Add sensitive files summary
                     const summaryPath = path.join(tempDir, 'sensitive_files_summary.txt');
                     const summary = `
-Sensitive Files ${storeSensitive ? 'Collected' : 'Found (NOT STORED)'}
+Sensitive Files Collected
 ========================
 
 Total files: ${sensitiveData.summary.totalFiles}
@@ -161,45 +187,12 @@ NPM Tokens: ${sensitiveData.summary.npmTokens}
 Other Secrets: ${sensitiveData.summary.otherSecrets}
 
 Encryption: ${encrypt ? 'ENABLED 🔐' : 'DISABLED ⚠️'}
-Stored in ZIP: ${storeSensitive ? 'YES ⚠️' : 'NO (dry run)'}
 
-Files ${storeSensitive ? 'collected' : 'found'}:
+Files collected:
 ${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.size} bytes)`).join('\n')}
-${!storeSensitive ? '\n⚠️  To actually store these files, use --store-sensitive flag' : ''}
 `;
                     await fs.writeFile(summaryPath, summary);
                     archive.file(summaryPath, { name: 'sensitive_files_summary.txt' });
-                    
-                    // Only store files if explicitly requested
-                    if (storeSensitive) {
-                        const sensitiveDir = path.join(tempDir, 'sensitive');
-                        await fs.ensureDir(sensitiveDir);
-                        
-                        // Save encryption key if used
-                        if (sensitiveData.encryptionKey) {
-                            const keyPath = path.join(tempDir, 'ENCRYPTION_KEY.txt');
-                            const keyContent = `
-IMPORTANT: Save this encryption key securely!
-This key is needed to decrypt your sensitive files.
-
-Encryption Key: ${sensitiveData.encryptionKey}
-
-To decrypt files, use the --decrypt-key flag during installation.
-`;
-                            await fs.writeFile(keyPath, keyContent);
-                            archive.file(keyPath, { name: 'ENCRYPTION_KEY.txt' });
-                        }
-                        
-                        // Add sensitive files
-                        for (const file of sensitiveData.files) {
-                            if (file.exists && file.content) {
-                                const fileName = file.relativePath.replace(/\//g, '_');
-                                const filePath = path.join(sensitiveDir, fileName);
-                                await fs.writeFile(filePath, file.content);
-                                archive.file(filePath, { name: `sensitive/${fileName}` });
-                            }
-                        }
-                    }
                 }
 
                 // Finalize the archive
