@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsx src/index.ts",
-    "build": "tsc && cp src/sea-wrapper.js dist/",
+    "build": "tsc",
     "webpack": "webpack",
     "pkg:blob": "node --experimental-sea-config sea.json",
     "pkg:node": "cp $(command -v node) ./dist/laptop-setup",
