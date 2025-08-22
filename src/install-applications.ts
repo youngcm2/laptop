@@ -50,30 +50,33 @@ export class ApplicationsInstaller {
             );
         });
         
-        // Check which apps can be installed via brew cask
-        const brewCaskApps: string[] = [];
-        const manualApps: string[] = [];
+        // Categorize apps by install method
+        const caskApps = nonAppStoreApps.filter(app => app.installMethod === 'cask');
+        const directDownloads = nonAppStoreApps.filter(app => app.installMethod === 'direct');
+        const unknownApps = nonAppStoreApps.filter(app => app.installMethod === 'unknown');
         
-        console.log('\nChecking which apps can be installed via Homebrew...');
+        console.log('\nApplication breakdown:');
+        console.log(`  Cask apps: ${caskApps.length}`);
+        console.log(`  Direct downloads: ${directDownloads.length}`);
+        console.log(`  Unknown source: ${unknownApps.length}`);
         
-        for (const app of nonAppStoreApps) {
-            // Skip system apps
-            if (app.source === 'System' || app.source === 'Utilities') {
-                continue;
-            }
+        // Install cask apps if brew is available
+        if (caskApps.length > 0) {
+            console.log(`\nInstalling ${caskApps.length} cask applications...`);
             
-            try {
-                // Search for the app in brew casks
-                const searchName = app.name.toLowerCase().replace(/\s+/g, '-');
-                const {stdout} = await execa('brew', ['search', '--cask', searchName]);
-                
-                if (stdout && stdout.includes(searchName)) {
-                    brewCaskApps.push(app.name);
-                } else {
-                    manualApps.push(app.name);
+            for (const app of caskApps) {
+                try {
+                    // Find the cask name from the data
+                    const caskName = applicationsData.caskApps.find(cask => 
+                        app.name.toLowerCase().includes(cask.toLowerCase()) ||
+                        cask.toLowerCase().includes(app.name.toLowerCase())
+                    ) || app.name.toLowerCase().replace(/\s+/g, '-');
+                    
+                    console.log(`  Installing cask: ${caskName} (${app.name})`);
+                    await execa('brew', ['install', '--cask', caskName]);
+                } catch (error) {
+                    console.warn(`  Failed to install cask ${app.name}:`, error);
                 }
-            } catch {
-                manualApps.push(app.name);
             }
         }
         
@@ -85,21 +88,36 @@ export class ApplicationsInstaller {
         report += `Total applications found: ${applicationsData.summary.totalApps}\n`;
         report += `App Store apps: ${applicationsData.summary.appStoreApps}\n\n`;
         
-        if (brewCaskApps.length > 0) {
-            report += 'Apps available via Homebrew Cask:\n';
-            report += '--------------------------------\n';
-            brewCaskApps.forEach(app => {
-                const caskName = app.toLowerCase().replace(/\s+/g, '-');
-                report += `brew install --cask ${caskName}  # ${app}\n`;
+        report += '\nInstallation Summary:\n';
+        report += '-------------------\n';
+        report += `Cask apps installed: ${caskApps.length}\n`;
+        report += `App Store apps: ${applicationsData.appStoreApps.length} (install via mas or App Store)\n`;
+        report += `Direct downloads needed: ${directDownloads.length}\n`;
+        report += `Unknown source: ${unknownApps.length}\n\n`;
+        
+        if (caskApps.length > 0) {
+            report += 'Cask Applications (already attempted to install):\n';
+            report += '-----------------------------------------------\n';
+            caskApps.forEach(app => {
+                report += `  - ${app.name} (${app.version || 'N/A'})\n`;
             });
             report += '\n';
         }
         
-        if (manualApps.length > 0) {
-            report += 'Apps requiring manual installation:\n';
-            report += '----------------------------------\n';
-            manualApps.forEach(app => {
-                report += `- ${app}\n`;
+        if (directDownloads.length > 0) {
+            report += 'Direct Download Applications (manual installation needed):\n';
+            report += '--------------------------------------------------------\n';
+            directDownloads.forEach(app => {
+                report += `  - ${app.name} (${app.version || 'N/A'})\n`;
+            });
+            report += '\n';
+        }
+        
+        if (unknownApps.length > 0) {
+            report += 'Applications with Unknown Source:\n';
+            report += '--------------------------------\n';
+            unknownApps.forEach(app => {
+                report += `  - ${app.name} (${app.version || 'N/A'}) from ${app.source}\n`;
             });
             report += '\n';
         }
@@ -108,7 +126,8 @@ export class ApplicationsInstaller {
         
         console.log(`\nApplication installation report saved to: ${reportPath}`);
         console.log(`  ${applicationsData.appStoreApps.length} App Store apps processed`);
-        console.log(`  ${brewCaskApps.length} apps available via Homebrew`);
-        console.log(`  ${manualApps.length} apps require manual installation`);
+        console.log(`  ${caskApps.length} cask apps installed`);
+        console.log(`  ${directDownloads.length} apps require manual download`);
+        console.log(`  ${unknownApps.length} apps from unknown sources`);
     }
 }

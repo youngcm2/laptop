@@ -24,7 +24,7 @@ const parser = yargs(hideBin(process.argv))
                     alias: 'o',
                     describe: 'Output zip file path',
                     type: 'string',
-                    default: 'laptop-setup.zip'
+                    default: `laptop-setup-${new Date().toISOString().replace(/:/g, '-').replace(/\..+/, '').replace('T', '_')}.zip`
                 });
         },
         async (argv) => {
