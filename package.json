@@ -1,0 +1,53 @@
+{
+  "name": "@youngcm2/laptop-setop",
+  "version": "1.0.0",
+  "description": "Fork and clone repo to ~/laptop",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsx src/index.ts",
+    "build": "tsc",
+    "webpack": "webpack",
+    "pkg:blob": "node --experimental-sea-config sea.json",
+    "pkg:node": "cp $(command -v node) ./dist/laptop-setup",
+    "pkg:remove-signature": "codesign --remove-signature ./dist/laptop-setup",
+    "pkg:postject": "./node_modules/.bin/postject ./dist/laptop-setup NODE_SEA_BLOB ./dist/sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 --macho-segment-name NODE_SEA",
+    "pkg:sign": "codesign --sign - ./dist/laptop-setup",
+    "pkg": "npm run build && npm run webpack && npm run pkg:blob && npm run pkg:node && npm run pkg:remove-signature && npm run pkg:postject && npm run pkg:sign",
+    "sea": "npm run build && node build-sea.js",
+    "sea:esbuild": "npm run build && node esbuild-sea.js"
+  },
+  "bin": "dist/index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "22.12.0",
+    "npm": "11.0.0"
+  },
+  "dependencies": {
+    "@types/archiver": "6.0.3",
+    "archiver": "7.0.1",
+    "execa": "9.5.2",
+    "fs-extra": "11.2.0",
+    "tslib": "2.8.1",
+    "yargs": "17.7.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/fs-extra": "11.0.4",
+    "@types/node": "22.10.5",
+    "@types/yargs": "17.0.33",
+    "esbuild": "^0.25.9",
+    "postject": "^1.0.0-alpha.6",
+    "rollup": "^4.47.1",
+    "ts-loader": "^9.0.0",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "webpack": "5.101.3",
+    "webpack-cli": "6.0.1"
+  }
+}
