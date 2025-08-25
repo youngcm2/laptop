@@ -1,0 +1,65 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          package-name: laptop-setup
+
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm ci
+
+      - name: Build
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm run build
+
+      - name: Create release artifacts
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          # Create a distributable package
+          mkdir -p dist-package
+          cp -r dist/* dist-package/
+          cp package.json dist-package/
+          cp package-lock.json dist-package/
+          cp README.md dist-package/
+          
+          # Create tarball
+          tar -czf laptop-setup-${{ steps.release.outputs.tag_name }}.tar.gz dist-package
+          
+          # Create zip
+          zip -r laptop-setup-${{ steps.release.outputs.tag_name }}.zip dist-package
+
+      - name: Upload Release Artifacts
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ steps.release.outputs.tag_name }} \
+            laptop-setup-${{ steps.release.outputs.tag_name }}.tar.gz \
+            laptop-setup-${{ steps.release.outputs.tag_name }}.zip
