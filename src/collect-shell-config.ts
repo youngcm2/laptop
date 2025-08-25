@@ -27,12 +27,9 @@ export class Shell {
         '.config/starship.toml',
         
         // Development configs
-        '.npmrc',
         '.tool-versions',
         '.asdfrc',
         '.cargo/config.toml',
-        '.bundle/config',
-        '.docker/config.json',
         
         // Editor configs
         '.editorconfig',
