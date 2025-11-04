@@ -11,6 +11,8 @@
     "collect": "node dist/index.js collect",
     "type-check": "tsc --noEmit",
     "lint": "echo \"No linter configured\"",
+    "prepare": "bash .specify/scripts/bash/install-hooks.sh",
+    "validate": "npm run type-check && npm run build && npm audit",
     "webpack": "webpack",
     "pkg:blob": "node --experimental-sea-config sea.json",
     "pkg:node": "cp $(command -v node) ./dist/laptop-setup",
