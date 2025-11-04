@@ -37,7 +37,16 @@ export class BrewInstaller {
     private logStream?: fs.WriteStream;
     private failedFormulae: string[] = [];
     private failedCasks: string[] = [];
-    private progress: InstallProgress;
+    private progress: InstallProgress = {
+        completedTaps: [],
+        completedFormulae: [],
+        completedCasks: [],
+        failedTaps: [],
+        failedFormulae: [],
+        failedCasks: [],
+        nameChanges: {},
+        lastUpdated: new Date().toISOString()
+    };
     
     private async promptOnError(): Promise<boolean> {
         const rl = readline.createInterface({
@@ -150,8 +159,8 @@ export class BrewInstaller {
             // Stream output in real-time if requested
             if (showOutput && childProcess.stdout) {
                 childProcess.stdout.on('data', (data) => {
-                    const lines = data.toString().split('\n').filter(line => line.trim());
-                    lines.forEach(line => {
+                    const lines = data.toString().split('\n').filter((line: string) => line.trim());
+                    lines.forEach((line: string) => {
                         // Filter and format brew output
                         if (line.includes('Downloading')) {
                             console.log(`        📥 ${line.trim()}`);
@@ -172,8 +181,8 @@ export class BrewInstaller {
             
             if (showOutput && childProcess.stderr) {
                 childProcess.stderr.on('data', (data) => {
-                    const lines = data.toString().split('\n').filter(line => line.trim());
-                    lines.forEach(line => {
+                    const lines = data.toString().split('\n').filter((line: string) => line.trim());
+                    lines.forEach((line: string) => {
                         if (!line.includes('Warning:')) {  // Skip warnings in console
                             console.log(`        ⚠️  ${line.trim()}`);
                         }

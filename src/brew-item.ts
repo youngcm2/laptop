@@ -4,4 +4,5 @@ export interface BrewItem {
     desc: string;
     homepage: string;
     tap: string;
+    id?: string;
 }
