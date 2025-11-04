@@ -223,3 +223,6 @@ dist/laptop-setup
 dist/bundle.js
 dist/*.bundle.js
 
+# Claude Code local settings (user-specific)
+.claude/
+
