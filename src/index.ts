@@ -231,6 +231,16 @@ ${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.s
                     describe: 'Skip installation of sensitive files',
                     type: 'boolean',
                     default: false
+                })
+                .option('no-pause', {
+                    describe: 'Do not pause on errors (continue automatically)',
+                    type: 'boolean',
+                    default: false
+                })
+                .option('resume', {
+                    describe: 'Resume installation from where it left off',
+                    type: 'boolean',
+                    default: false
                 });
         },
         async (argv) => {
@@ -239,6 +249,8 @@ ${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.s
             const brewPrefix = argv.brewPrefix as string | undefined;
             const decryptKey = argv['decrypt-key'] as string | undefined;
             const skipSensitive = argv['skip-sensitive'] as boolean;
+            const noPause = argv['no-pause'] as boolean;
+            const resume = argv.resume as boolean;
 
             if (!await fs.pathExists(zipPath)) {
                 console.error(`Error: File not found: ${zipPath}`);
@@ -252,6 +264,13 @@ ${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.s
 
             // Create temporary directory for extraction
             const tempDir = path.join(process.cwd(), '.laptop-install-temp');
+            
+            // Clean up any existing temp directory before starting
+            if (await fs.pathExists(tempDir)) {
+                console.log('Cleaning up previous temp directory...');
+                await fs.remove(tempDir);
+            }
+            
             await fs.ensureDir(tempDir);
 
             try {
@@ -285,19 +304,46 @@ ${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.s
                 console.log('Installing all components...\n');
 
                 // Install Homebrew packages
+                let brewInstallResult;
                 if (config.brew) {
                     const brewInstaller = new BrewInstaller();
-                    await brewInstaller.install(config.brew, {
+                    const logFile = path.join(tempDir, 'brew-install.log');
+                    const progressFile = path.join(process.cwd(), '.brew-install-progress.json');
+                    
+                    if (resume) {
+                        console.log(`🔄 Resume mode enabled. Progress will be tracked in: ${progressFile}`);
+                    }
+                    
+                    brewInstallResult = await brewInstaller.install(config.brew, {
                         useProfile,
-                        brewPrefix: brewPrefix || (useProfile ? path.join(os.homedir(), 'homebrew') : undefined)
+                        brewPrefix: brewPrefix || (useProfile ? path.join(os.homedir(), 'homebrew') : undefined),
+                        pauseOnError: !noPause,
+                        logFile: logFile,
+                        timeout: 300000,  // 5 minutes timeout per package
+                        progressFile: progressFile,
+                        resume: resume
                     });
+                    
+                    console.log(`\n📄 Installation log saved to: ${logFile}`);
+                    
+                    // Add Homebrew to PATH for current process
+                    const brewBinPath = path.join(brewInstallResult.brewPrefix, 'bin');
+                    process.env.PATH = `${brewBinPath}:${process.env.PATH}`;
+                    process.env.HOMEBREW_PREFIX = brewInstallResult.brewPrefix;
+                    process.env.HOMEBREW_CELLAR = path.join(brewInstallResult.brewPrefix, 'Cellar');
+                    process.env.HOMEBREW_REPOSITORY = brewInstallResult.brewPrefix;
+                    
+                    console.log(`\n✅ Homebrew added to PATH for current session: ${brewBinPath}`);
                 }
 
                 // Install shell configurations
                 if (config.shell) {
                     const shellInstaller = new ShellInstaller();
                     const configsDir = path.join(tempDir, 'configs');
-                    await shellInstaller.install(config.shell, configsDir, { useProfile });
+                    await shellInstaller.install(config.shell, configsDir, { 
+                        useProfile,
+                        brewPrefix: brewInstallResult?.brewPrefix
+                    });
                 }
 
                 // Install applications
@@ -337,8 +383,25 @@ ${sensitiveData.files.filter(f => f.exists).map(f => `- ${f.relativePath} (${f.s
 
             } catch (error) {
                 console.error('Installation failed:', error);
+                
+                // Copy log files before cleanup
+                const logFile = path.join(tempDir, 'brew-install.log');
+                if (await fs.pathExists(logFile)) {
+                    const savedLogPath = path.join(process.cwd(), 'brew-install-failed.log');
+                    await fs.copy(logFile, savedLogPath);
+                    console.log(`\n📄 Installation log saved to: ${savedLogPath}`);
+                }
+                
                 process.exit(1);
             } finally {
+                // Copy successful log files before cleanup
+                const logFile = path.join(tempDir, 'brew-install.log');
+                if (await fs.pathExists(logFile)) {
+                    const savedLogPath = path.join(process.cwd(), 'brew-install.log');
+                    await fs.copy(logFile, savedLogPath);
+                    console.log(`📄 Full installation log saved to: ${savedLogPath}`);
+                }
+                
                 // Clean up temp directory
                 await fs.remove(tempDir);
             }

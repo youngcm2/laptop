@@ -9,7 +9,6 @@
     "start": "tsx src/index.ts",
     "build": "tsc",
     "collect": "node dist/index.js collect",
-    "install": "node dist/index.js install",
     "type-check": "tsc --noEmit",
     "lint": "echo \"No linter configured\"",
     "webpack": "webpack",
