@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Fork and clone repo to ~/laptop",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"No tests configured\"",
     "start": "tsx src/index.ts",
