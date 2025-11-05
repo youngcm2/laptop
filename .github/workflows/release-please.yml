@@ -20,7 +20,7 @@ jobs:
           release-type: node
           package-name: laptop-setup
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Setup volta
