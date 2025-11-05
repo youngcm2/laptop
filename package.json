@@ -39,19 +39,19 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "28.0.6",
+    "@rollup/plugin-commonjs": "28.0.9",
     "@rollup/plugin-json": "6.1.0",
-    "@rollup/plugin-node-resolve": "16.0.1",
+    "@rollup/plugin-node-resolve": "16.0.3",
     "@types/fs-extra": "11.0.4",
     "@types/node": "24.10.0",
-    "@types/yargs": "17.0.33",
-    "esbuild": "0.25.9",
+    "@types/yargs": "17.0.34",
+    "esbuild": "0.25.12",
     "postject": "1.0.0-alpha.6",
-    "rollup": "4.47.1",
-    "ts-loader": "9.5.2",
-    "tsx": "4.19.2",
-    "typescript": "5.7.2",
-    "webpack": "5.101.3",
+    "rollup": "4.52.5",
+    "ts-loader": "9.5.4",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "webpack": "5.102.1",
     "webpack-cli": "6.0.1"
   }
 }
