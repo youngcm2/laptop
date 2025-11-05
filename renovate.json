@@ -1,6 +1,139 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": true,
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "docker:pinDigests"
+  ],
+  "rangeStrategy": "pin",
+  "reviewersFromCodeOwners": true,
+  "labels": [
+    "dependencies"
+  ],
+  "vulnerabilityAlerts": {
+    "labels": [
+      "security"
+    ]
+  },
+  "commitMessageAction": "update",
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "pin"
+      ],
+      "commitMessageAction": "pin"
+    },
+    {
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "commitMessageAction": "lock file maintenance"
+    },
+    {
+      "matchUpdateTypes": [
+        "rollback"
+      ],
+      "commitMessageAction": "roll back"
+    },
+    {
+      "matchUpdateTypes": [
+        "replacement"
+      ],
+      "commitMessageAction": "replace"
+    },
+    {
+      "matchUpdateTypes": [
+        "patch",
+        "minor"
+      ],
+      "semanticCommitType": "fix",
+      "matchPackageNames": [
+        "*"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "commitMessagePrefix": "feat(deps)!:",
+      "matchPackageNames": [
+        "*"
+      ]
+    },
+    {
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "patch",
+        "minor"
+      ],
+      "groupName": "devDependencies (non-major)",
+      "automerge": true,
+      "commitMessagePrefix": "chore(deps):"
+    },
+    {
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "automerge": false,
+      "commitMessagePrefix": "chore(deps):"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "patch",
+        "minor",
+        "digest"
+      ],
+      "semanticCommitType": "fix"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "commitMessagePrefix": "feat(deps)!:"
+    },
+    {
+      "description": "Automerge non-major updates",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pinDigest"
+      ],
+      "automerge": true
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "patch",
+        "minor"
+      ],
+      "automerge": true,
+      "semanticCommitType": "ci",
+      "commitMessagePrefix": "ci:"
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "automerge": false,
+      "semanticCommitType": "ci",
+      "commitMessagePrefix": "ci:"
+    }
   ]
 }
