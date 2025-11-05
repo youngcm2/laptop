@@ -45,7 +45,7 @@
     "@types/fs-extra": "11.0.4",
     "@types/node": "22.10.5",
     "@types/yargs": "17.0.33",
-    "esbuild": "0.25.9",
+    "esbuild": "0.25.12",
     "postject": "1.0.0-alpha.6",
     "rollup": "4.47.1",
     "ts-loader": "9.5.2",
