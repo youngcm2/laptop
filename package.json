@@ -31,7 +31,7 @@
     "npm": "11.0.0"
   },
   "dependencies": {
-    "@types/archiver": "6.0.3",
+    "@types/archiver": "6.0.4",
     "archiver": "7.0.1",
     "execa": "9.5.2",
     "fs-extra": "11.2.0",
