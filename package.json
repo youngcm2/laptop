@@ -47,7 +47,7 @@
     "@types/yargs": "17.0.35",
     "esbuild": "0.27.1",
     "postject": "1.0.0-alpha.6",
-    "rollup": "4.53.4",
+    "rollup": "4.53.5",
     "ts-loader": "9.5.4",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
