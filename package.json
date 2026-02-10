@@ -43,7 +43,7 @@
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "16.0.3",
     "@types/fs-extra": "11.0.4",
-    "@types/node": "24.10.12",
+    "@types/node": "24.10.13",
     "@types/yargs": "17.0.35",
     "esbuild": "0.27.3",
     "postject": "1.0.0-alpha.6",
@@ -51,7 +51,7 @@
     "ts-loader": "9.5.4",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
-    "webpack": "5.105.0",
+    "webpack": "5.105.1",
     "webpack-cli": "6.0.1"
   }
 }
