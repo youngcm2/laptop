@@ -28,7 +28,7 @@
   "license": "ISC",
   "volta": {
     "node": "24.13.1",
-    "npm": "11.9.0"
+    "npm": "11.10.0"
   },
   "dependencies": {
     "@types/archiver": "7.0.0",
