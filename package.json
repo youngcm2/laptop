@@ -27,7 +27,7 @@
   "author": "",
   "license": "ISC",
   "volta": {
-    "node": "24.17.0",
+    "node": "24.18.0",
     "npm": "11.17.0"
   },
   "dependencies": {
