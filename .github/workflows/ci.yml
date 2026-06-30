@@ -15,10 +15,10 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v5.0.1
 
     - name: Setup volta
-      uses: volta-cli/action@v4
+      uses: volta-cli/action@v4.2.1
       with:
         registry-url: "https://registry.npmjs.org"
 
