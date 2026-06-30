@@ -13,18 +13,18 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v4.4.1
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: laptop-setup
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v5.0.1
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Setup volta
-        uses: volta-cli/action@v4
+        uses: volta-cli/action@v4.2.1
         if: ${{ steps.release.outputs.release_created }}
         with:
           registry-url: "https://registry.npmjs.org"
