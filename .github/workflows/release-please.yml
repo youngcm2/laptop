@@ -24,7 +24,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Setup volta
-        uses: volta-cli/action@v4
+        uses: volta-cli/action@v5
         if: ${{ steps.release.outputs.release_created }}
         with:
           registry-url: "https://registry.npmjs.org"
